@@ -1,0 +1,14 @@
+//
+//  VGNetworkFramework.pch
+//  VGNetworkFramework
+//
+//  Created by Simon on 16/1/15.
+//  Copyright © 2016年 Simon. All rights reserved.
+//
+
+#ifndef VGNetworkFramework_pch
+#define VGNetworkFramework_pch
+
+#import "EnumAll.h"
+
+#endif /* VGNetworkFramework_pch */
