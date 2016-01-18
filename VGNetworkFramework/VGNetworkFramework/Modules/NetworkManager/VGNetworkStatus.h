@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  网络状态变更代理
+ *  网络状态变化的代理
  */
 @protocol Protocol_VGNetworkStatus<NSObject>
 
@@ -19,9 +19,9 @@
 /**
  *  状态变化时，根据代理中传入网络状态，任务可以进行相应的处理
  *
- *  @param task 当前的网络类型
+ *  @param currentNetworkType 当前的网络类型
  */
--(void)networkStatusWithNetworkType:(VGNETWORKTYPE)task;
+-(void)networkStatusWithNetworkType:(VGNETWORKTYPE)currentNetworkType;
 
 @end
 
@@ -36,7 +36,7 @@
 @property (nonatomic, assign) id<Protocol_VGNetworkStatus> delegate;
 
 /**
- *  网速
+ *  网速--可能不会放到这里
  */
 @property (nonatomic, assign) float m_speedNetwork;
 @end

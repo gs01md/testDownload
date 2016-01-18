@@ -9,11 +9,19 @@
 /* Begin PBXBuildFile section */
 		F48C45421C48ECDA00EBD2A1 /* VGNetworkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48C45371C48ECDA00EBD2A1 /* VGNetworkFramework.framework */; };
 		F48C45471C48ECDA00EBD2A1 /* VGNetworkFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F48C45461C48ECDA00EBD2A1 /* VGNetworkFrameworkTests.m */; };
-		F48C470C1C48EFF100EBD2A1 /* VGNetworkFramework.pch in Headers */ = {isa = PBXBuildFile; fileRef = F48C47091C48EFF100EBD2A1 /* VGNetworkFramework.pch */; };
-		F48C470D1C48EFF100EBD2A1 /* VGNetworkFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F48C470A1C48EFF100EBD2A1 /* VGNetworkFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F48C470F1C48F1C400EBD2A1 /* EnumAll.h in Headers */ = {isa = PBXBuildFile; fileRef = F48C470E1C48F1C400EBD2A1 /* EnumAll.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F48C47131C48F33700EBD2A1 /* VGNetworkStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = F48C47111C48F33700EBD2A1 /* VGNetworkStatus.h */; };
-		F48C47141C48F33700EBD2A1 /* VGNetworkStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = F48C47121C48F33700EBD2A1 /* VGNetworkStatus.m */; };
+		F4EC1C901C4CEA370027C7A3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4EC1C8D1C4CEA370027C7A3 /* Info.plist */; };
+		F4EC1C911C4CEA370027C7A3 /* VGNetworkFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1C8E1C4CEA370027C7A3 /* VGNetworkFramework.h */; };
+		F4EC1C921C4CEA370027C7A3 /* VGNetworkFramework.pch in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1C8F1C4CEA370027C7A3 /* VGNetworkFramework.pch */; };
+		F4EC1C9B1C4CEABC0027C7A3 /* VGBaseFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1C991C4CEABC0027C7A3 /* VGBaseFileInfo.h */; };
+		F4EC1C9C1C4CEABC0027C7A3 /* VGBaseFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC1C9A1C4CEABC0027C7A3 /* VGBaseFileInfo.m */; };
+		F4EC1CA01C4CEB140027C7A3 /* VGNetworkStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1C9E1C4CEB140027C7A3 /* VGNetworkStatus.h */; };
+		F4EC1CA11C4CEB140027C7A3 /* VGNetworkStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC1C9F1C4CEB140027C7A3 /* VGNetworkStatus.m */; };
+		F4EC1CA31C4CEC4F0027C7A3 /* EnumFile.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1CA21C4CEC4F0027C7A3 /* EnumFile.h */; };
+		F4EC1CA61C4CEDE70027C7A3 /* VGImageFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1CA41C4CEDE70027C7A3 /* VGImageFileInfo.h */; };
+		F4EC1CA71C4CEDE70027C7A3 /* VGImageFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC1CA51C4CEDE70027C7A3 /* VGImageFileInfo.m */; };
+		F4EC1CAA1C4CEF670027C7A3 /* VGFileOverduleCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1CA81C4CEF670027C7A3 /* VGFileOverduleCheck.h */; };
+		F4EC1CAB1C4CEF670027C7A3 /* VGFileOverduleCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC1CA91C4CEF670027C7A3 /* VGFileOverduleCheck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,12 +39,19 @@
 		F48C45411C48ECDA00EBD2A1 /* VGNetworkFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGNetworkFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48C45461C48ECDA00EBD2A1 /* VGNetworkFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VGNetworkFrameworkTests.m; sourceTree = "<group>"; };
 		F48C45481C48ECDA00EBD2A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F48C47081C48EFF100EBD2A1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F48C47091C48EFF100EBD2A1 /* VGNetworkFramework.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkFramework.pch; sourceTree = "<group>"; };
-		F48C470A1C48EFF100EBD2A1 /* VGNetworkFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkFramework.h; sourceTree = "<group>"; };
 		F48C470E1C48F1C400EBD2A1 /* EnumAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumAll.h; sourceTree = "<group>"; };
-		F48C47111C48F33700EBD2A1 /* VGNetworkStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkStatus.h; sourceTree = "<group>"; };
-		F48C47121C48F33700EBD2A1 /* VGNetworkStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGNetworkStatus.m; sourceTree = "<group>"; };
+		F4EC1C8D1C4CEA370027C7A3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4EC1C8E1C4CEA370027C7A3 /* VGNetworkFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkFramework.h; sourceTree = "<group>"; };
+		F4EC1C8F1C4CEA370027C7A3 /* VGNetworkFramework.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkFramework.pch; sourceTree = "<group>"; };
+		F4EC1C991C4CEABC0027C7A3 /* VGBaseFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGBaseFileInfo.h; sourceTree = "<group>"; };
+		F4EC1C9A1C4CEABC0027C7A3 /* VGBaseFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGBaseFileInfo.m; sourceTree = "<group>"; };
+		F4EC1C9E1C4CEB140027C7A3 /* VGNetworkStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkStatus.h; sourceTree = "<group>"; };
+		F4EC1C9F1C4CEB140027C7A3 /* VGNetworkStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGNetworkStatus.m; sourceTree = "<group>"; };
+		F4EC1CA21C4CEC4F0027C7A3 /* EnumFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumFile.h; sourceTree = "<group>"; };
+		F4EC1CA41C4CEDE70027C7A3 /* VGImageFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGImageFileInfo.h; sourceTree = "<group>"; };
+		F4EC1CA51C4CEDE70027C7A3 /* VGImageFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGImageFileInfo.m; sourceTree = "<group>"; };
+		F4EC1CA81C4CEF670027C7A3 /* VGFileOverduleCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGFileOverduleCheck.h; sourceTree = "<group>"; };
+		F4EC1CA91C4CEF670027C7A3 /* VGFileOverduleCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGFileOverduleCheck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +94,9 @@
 		F48C45391C48ECDA00EBD2A1 /* VGNetworkFramework */ = {
 			isa = PBXGroup;
 			children = (
-				F48C47101C48F31C00EBD2A1 /* status */,
+				F4EC1C8C1C4CEA370027C7A3 /* System */,
+				F4EC1C861C4CE9870027C7A3 /* Modules */,
 				F48C47061C48EFF100EBD2A1 /* Enum */,
-				F48C47071C48EFF100EBD2A1 /* system */,
 			);
 			path = VGNetworkFramework;
 			sourceTree = "<group>";
@@ -99,27 +114,50 @@
 			isa = PBXGroup;
 			children = (
 				F48C470E1C48F1C400EBD2A1 /* EnumAll.h */,
+				F4EC1CA21C4CEC4F0027C7A3 /* EnumFile.h */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		F48C47071C48EFF100EBD2A1 /* system */ = {
+		F4EC1C861C4CE9870027C7A3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				F48C47081C48EFF100EBD2A1 /* Info.plist */,
-				F48C47091C48EFF100EBD2A1 /* VGNetworkFramework.pch */,
-				F48C470A1C48EFF100EBD2A1 /* VGNetworkFramework.h */,
+				F4EC1C9D1C4CEB140027C7A3 /* NetworkManager */,
+				F4EC1C931C4CEA430027C7A3 /* FileManager */,
 			);
-			path = system;
+			path = Modules;
 			sourceTree = "<group>";
 		};
-		F48C47101C48F31C00EBD2A1 /* status */ = {
+		F4EC1C8C1C4CEA370027C7A3 /* System */ = {
 			isa = PBXGroup;
 			children = (
-				F48C47111C48F33700EBD2A1 /* VGNetworkStatus.h */,
-				F48C47121C48F33700EBD2A1 /* VGNetworkStatus.m */,
+				F4EC1C8D1C4CEA370027C7A3 /* Info.plist */,
+				F4EC1C8E1C4CEA370027C7A3 /* VGNetworkFramework.h */,
+				F4EC1C8F1C4CEA370027C7A3 /* VGNetworkFramework.pch */,
 			);
-			path = status;
+			path = System;
+			sourceTree = "<group>";
+		};
+		F4EC1C931C4CEA430027C7A3 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				F4EC1C991C4CEABC0027C7A3 /* VGBaseFileInfo.h */,
+				F4EC1C9A1C4CEABC0027C7A3 /* VGBaseFileInfo.m */,
+				F4EC1CA41C4CEDE70027C7A3 /* VGImageFileInfo.h */,
+				F4EC1CA51C4CEDE70027C7A3 /* VGImageFileInfo.m */,
+				F4EC1CA81C4CEF670027C7A3 /* VGFileOverduleCheck.h */,
+				F4EC1CA91C4CEF670027C7A3 /* VGFileOverduleCheck.m */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
+		F4EC1C9D1C4CEB140027C7A3 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				F4EC1C9E1C4CEB140027C7A3 /* VGNetworkStatus.h */,
+				F4EC1C9F1C4CEB140027C7A3 /* VGNetworkStatus.m */,
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,9 +168,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F48C470F1C48F1C400EBD2A1 /* EnumAll.h in Headers */,
-				F48C470D1C48EFF100EBD2A1 /* VGNetworkFramework.h in Headers */,
-				F48C47131C48F33700EBD2A1 /* VGNetworkStatus.h in Headers */,
-				F48C470C1C48EFF100EBD2A1 /* VGNetworkFramework.pch in Headers */,
+				F4EC1CA61C4CEDE70027C7A3 /* VGImageFileInfo.h in Headers */,
+				F4EC1C911C4CEA370027C7A3 /* VGNetworkFramework.h in Headers */,
+				F4EC1CAA1C4CEF670027C7A3 /* VGFileOverduleCheck.h in Headers */,
+				F4EC1C9B1C4CEABC0027C7A3 /* VGBaseFileInfo.h in Headers */,
+				F4EC1CA31C4CEC4F0027C7A3 /* EnumFile.h in Headers */,
+				F4EC1CA01C4CEB140027C7A3 /* VGNetworkStatus.h in Headers */,
+				F4EC1C921C4CEA370027C7A3 /* VGNetworkFramework.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4EC1C901C4CEA370027C7A3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F48C47141C48F33700EBD2A1 /* VGNetworkStatus.m in Sources */,
+				F4EC1CAB1C4CEF670027C7A3 /* VGFileOverduleCheck.m in Sources */,
+				F4EC1C9C1C4CEABC0027C7A3 /* VGBaseFileInfo.m in Sources */,
+				F4EC1CA11C4CEB140027C7A3 /* VGNetworkStatus.m in Sources */,
+				F4EC1CA71C4CEDE70027C7A3 /* VGImageFileInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +396,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = VGNetworkFramework/system/VGNetworkFramework.pch;
+				GCC_PREFIX_HEADER = VGNetworkFramework/System/VGNetworkFramework.pch;
 				INFOPLIST_FILE = VGNetworkFramework/system/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -367,7 +413,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = VGNetworkFramework/system/VGNetworkFramework.pch;
+				GCC_PREFIX_HEADER = VGNetworkFramework/System/VGNetworkFramework.pch;
 				INFOPLIST_FILE = VGNetworkFramework/system/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
