@@ -1,37 +1,35 @@
 //
-//  EnumAll.h
+//  VGEnumTask.h
 //  VGNetworkFramework
-//  本文件包含所有的枚举定义
-//  Created by Simon on 16/1/15.
+//
+//  Created by Simon on 16/1/19.
 //  Copyright © 2016年 Simon. All rights reserved.
 //
 
-#import "EnumFile.h"
-
-#ifndef EnumAll_h
-#define EnumAll_h
-
-
+#ifndef VGEnumTask_h
+#define VGEnumTask_h
 
 /**
- *  网络类型
+ *  任务处理方式
  */
-typedef enum{
-    /**
-     *  无网络
-     */
-    VGNETWORKTYPE_NULL = 0,
+typedef enum {
     
     /**
-     *  WIFI
+     *  未知
      */
-    VGNETWORKTYPE_WIFI,
+    VGTASK_TYPE_UNKNOWN = 0,
     
     /**
-     *  移动网络
+     *  下载
      */
-    VGNETWORKTYPE_PHONE,
-}VGNETWORKTYPE;
+    VGTASK_TYPE_DOWNLOAD,
+    
+    /**
+     *  上传
+     */
+    VGTASK_TYPE_UPLOAD,
+    
+}VGTASK_TYPE;
 
 
 /**
@@ -42,7 +40,7 @@ typedef enum {
     /**
      *  暂停
      */
-    VGNETWORKTYPE_CHANGE_HANDLETYPE_PAUSE,
+    VGNETWORKTYPE_CHANGE_HANDLETYPE_PAUSE = 0,
     
     /**
      *  终止
@@ -91,5 +89,4 @@ typedef enum {
     
 }TASK_STATUS;
 
-
-#endif /* EnumAll_h */
+#endif /* VGEnumTask_h */

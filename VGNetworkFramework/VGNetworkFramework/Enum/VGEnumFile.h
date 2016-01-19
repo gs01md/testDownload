@@ -1,13 +1,13 @@
 //
-//  EnumFile.h
+//  VGEnumFile.h
 //  VGNetworkFramework
 //
 //  Created by Simon on 16/1/18.
 //  Copyright © 2016年 Simon. All rights reserved.
 //
 
-#ifndef EnumFile_h
-#define EnumFile_h
+#ifndef VGEnumFile_h
+#define VGEnumFile_h
 
 
 /**
@@ -50,4 +50,4 @@ typedef enum {
 }VGFILEPOSITIONTYPE;
 
 
-#endif /* EnumFile_h */
+#endif /* VGEnumFile_h */

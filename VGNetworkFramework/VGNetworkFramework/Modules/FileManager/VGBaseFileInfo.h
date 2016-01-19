@@ -11,17 +11,17 @@
 @interface VGBaseFileInfo : NSObject
 
 /**
- *  上传/下载的文件类型
+ *  上传/下载文件的  类型
  */
 @property (nonatomic, assign) VGFILETYPE m_type;
 
 /**
- *  上传/下载的文件名称
+ *  上传/下载文件的  名称
  */
 @property (nonatomic, strong) NSString *m_strName;
 
 /**
- *  上传/下载的文件大小
+ *  上传/下载文件的  大小
  */
 @property (nonatomic, assign) double m_dlLength;
 

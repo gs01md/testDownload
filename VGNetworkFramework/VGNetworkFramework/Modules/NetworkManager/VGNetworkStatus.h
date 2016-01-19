@@ -21,7 +21,7 @@
  *
  *  @param currentNetworkType 当前的网络类型
  */
--(void)networkStatusWithNetworkType:(VGNETWORKTYPE)currentNetworkType;
+- (void) networkStatusWithNetworkType:(VGNETWORKTYPE)currentNetworkType;
 
 @end
 
