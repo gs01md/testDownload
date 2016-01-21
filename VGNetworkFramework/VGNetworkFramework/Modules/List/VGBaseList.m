@@ -60,7 +60,7 @@
  */
 - (NSDictionary *) getListData {
     
-    return[NSDictionary dictionaryWithContentsOfFile:[self getFilePath]];  //读取数据
+    return [NSDictionary dictionaryWithContentsOfFile:[self getFilePath]];  //读取数据
 
 }
 

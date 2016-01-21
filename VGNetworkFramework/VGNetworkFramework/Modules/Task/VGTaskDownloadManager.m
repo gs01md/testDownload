@@ -1,36 +1,24 @@
 //
-//  VGPathManager.m
+//  VGTaskDownloadManager.m
 //  VGNetworkFramework
 //
 //  Created by Simon on 16/1/19.
 //  Copyright © 2016年 Simon. All rights reserved.
 //
 
-#import "VGPathManager.h"
+#import "VGTaskDownloadManager.h"
 
-#pragma mark - 创建实例
 
-static VGPathManager *center = nil;
-static NSString *strClass = @"VGPathManager";
+@implementation VGTaskDownloadManager
 
-@implementation VGPathManager
+#pragma mark - interface
 
-#pragma mark - 实现功能
 
-/**
- *  获取文档路径
- *
- *  @return 路径
- */
-- (NSString *) getDocumentPath {
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    NSString *strPath = [paths objectAtIndex:0];
-    
-    return strPath;
-}
 
 #pragma mark - create
+
+static VGTaskDownloadManager *center = nil;
+static NSString *strClass = @"VGTaskDownloadManager";
 
 /**
  *  管理中心
@@ -45,8 +33,8 @@ static NSString *strClass = @"VGPathManager";
         /**
          *  这么做的原因是：在 init() 中会判断是否是本类，而不是子类
          */
-        center = (VGPathManager *)strClass;
-        center = [[VGPathManager alloc] init];
+        center = (VGTaskDownloadManager *)strClass;
+        center = [[VGTaskDownloadManager alloc] init];
     });
     
     if (nil != center) {
@@ -92,6 +80,5 @@ static NSString *strClass = @"VGPathManager";
     return  TRUE;
     
 }
-
 
 @end

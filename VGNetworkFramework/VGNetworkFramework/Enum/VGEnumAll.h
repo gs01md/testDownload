@@ -8,7 +8,7 @@
 
 #import "VGEnumFile.h"
 #import "VGEnumTask.h"
-
+#import "VGEnumList.h"
 
 #ifndef VGEnumAll_h
 #define VGEnumAll_h
