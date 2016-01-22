@@ -6,14 +6,11 @@
 //
 //  实现功能:
 //
-//  * 根据“队列名”和“url” 创建一个下载任务
-//  * 根据“队列名”和“url” 获取一个下载任务
+//  * 根据“队列名”和“url” 创建/获取一个下载任务
 //  *
 //  * 根据“队列名”和“url” 重启一个下载任务
 //  * 根据“队列名”和“url” 暂停一个下载任务
 //  * 根据“队列名”和“url” 删除一个下载任务
-//  *
-//  *
 //  *
 //
 //  注释：
@@ -35,35 +32,14 @@
 + (instancetype) sharedManagerCenter;
 
 /**
- *  根据“队列名”和“url” 创建一个下载任务
+ *  根据“队列名”和“url” 创建/获取/重启一个下载任务
  *
  *  @param strUrl   下载链接
  *  @param strQueue 下载队列名称--为自定义队列名称
  *
  *  @return 下载任务对象
  */
-- (VGTaskDownload *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
-
-
-/**
- *  根据“队列名”和“url” 获取一个下载任务
- *
- *  @param strUrl   下载链接
- *  @param strQueue 下载队列名称--为自定义队列名称
- *
- *  @return 下载任务对象
- */
-- (VGTaskDownload *) getDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
-
-/**
- *  根据“队列名”和“url” 重启一个下载任务
- *
- *  @param strUrl   下载链接
- *  @param strQueue 下载队列名称--为自定义队列名称
- *
- *  @return 下载任务对象
- */
-- (VGTaskDownload *) restartDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
+- (VGTaskDownload *) downloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
 
 
 /**
