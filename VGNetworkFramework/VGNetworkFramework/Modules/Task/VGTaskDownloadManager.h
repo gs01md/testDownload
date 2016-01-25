@@ -25,6 +25,11 @@
 
 @interface VGTaskDownloadManager : NSObject
 /**
+ *  所有任务
+ */
+@property (nonatomic, strong) NSDictionary *listTaskQueue;
+
+/**
  *  下载管理中心--单例
  *
  *  @return 实例对象
@@ -61,5 +66,45 @@
  *
  */
 - (void) deleteDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
+
+
+/**
+ *  根据“队列名”和“url” 查询一个下载任务
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ */
+- (VGTaskDownload *) searchDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
+
+/**
+ *  根据“队列名”和“url” 检查本地文件是否存在
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ *  @return 下载任务对象
+ */
+- (bool *) checkFileExistWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
+
+/**
+ *  根据“队列名”和“url” 检查本地文件是否过期
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ *  @return 下载任务对象
+ */
+- (bool *) checkFileValidWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
+
+/**
+ *  根据“队列名”和“url” 检查任务是否在任务列表中
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ *  @return 下载任务对象
+ */
+- (bool *) checTaskInQueueWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
 
 @end

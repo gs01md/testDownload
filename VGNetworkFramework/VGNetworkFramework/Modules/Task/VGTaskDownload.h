@@ -34,8 +34,10 @@
 
 /**
  *  任务正常结束
+ *
+ *  @param strFilePath 抛出下载后的文件路径
  */
-- (void) taskDidFinishedSuccessed;
+- (void) taskDidFinishedSuccessed:(NSString*)strFilePath;
 
 @end
 
@@ -68,6 +70,13 @@
 @property(nonatomic , assign) VGFILEPOSITIONTYPE m_saveType;
 
 /**
+ *  下载状态
+ */
+@property(nonatomic , assign) TASK_STATUS m_taskStatus;
+
+
+
+/**
  *  起始时间
  */
 @property(nonatomic , strong) NSDate *m_dateStart;
@@ -98,6 +107,16 @@
  *  重新开始任务
  */
 -(void)taskRestart;
+
+/**
+ *  根据“队列名”和“url” 记录下载进度
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *  @param length下载长度的最大值
+ *
+ */
+- (void) progressDownloadedLength:(double) length;
 
 
 @end

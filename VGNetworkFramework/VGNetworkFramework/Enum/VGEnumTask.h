@@ -10,7 +10,7 @@
 #define VGEnumTask_h
 
 /**
- *  任务处理方式
+ *  任务类型
  */
 typedef enum {
     
