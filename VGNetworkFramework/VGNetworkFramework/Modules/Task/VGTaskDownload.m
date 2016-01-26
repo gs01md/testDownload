@@ -37,6 +37,19 @@
     
 }
 
+/**
+ *  记录下载进度
+ *
+ *  @param length下载长度的最大值
+ *
+ */
+- (void) progressDownloadedLength:(double) length{
+    
+}
+
+
+
+
 #pragma mark - 网络状态代理
 /**
  *  状态变化时，根据代理中传入网络状态，任务可以进行相应的处理

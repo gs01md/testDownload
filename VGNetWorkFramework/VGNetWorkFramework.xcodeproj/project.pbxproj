@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F416582F1C50B16D00A35CB7 /* VGTaskDownload.h in Headers */ = {isa = PBXBuildFile; fileRef = F416582D1C50B16D00A35CB7 /* VGTaskDownload.h */; };
 		F41658301C50B16D00A35CB7 /* VGTaskDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */; };
+		F431770F1C5762420011637E /* VGDownloadList.h in Headers */ = {isa = PBXBuildFile; fileRef = F431770D1C5762420011637E /* VGDownloadList.h */; };
+		F43177101C5762420011637E /* VGDownloadList.m in Sources */ = {isa = PBXBuildFile; fileRef = F431770E1C5762420011637E /* VGDownloadList.m */; };
 		F440656F1C4DC6160041CD5C /* VGTaskUpload.h in Headers */ = {isa = PBXBuildFile; fileRef = F440656D1C4DC6160041CD5C /* VGTaskUpload.h */; };
 		F44065701C4DC6160041CD5C /* VGTaskUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = F440656E1C4DC6160041CD5C /* VGTaskUpload.m */; };
 		F44065731C4DD42C0041CD5C /* VGTaskExecutingInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065711C4DD42C0041CD5C /* VGTaskExecutingInfo.h */; };
@@ -73,6 +75,8 @@
 /* Begin PBXFileReference section */
 		F416582D1C50B16D00A35CB7 /* VGTaskDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskDownload.h; sourceTree = "<group>"; };
 		F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskDownload.m; sourceTree = "<group>"; };
+		F431770D1C5762420011637E /* VGDownloadList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGDownloadList.h; sourceTree = "<group>"; };
+		F431770E1C5762420011637E /* VGDownloadList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGDownloadList.m; sourceTree = "<group>"; };
 		F440656D1C4DC6160041CD5C /* VGTaskUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskUpload.h; sourceTree = "<group>"; };
 		F440656E1C4DC6160041CD5C /* VGTaskUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskUpload.m; sourceTree = "<group>"; };
 		F44065711C4DD42C0041CD5C /* VGTaskExecutingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskExecutingInfo.h; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				F44065861C4DE0080041CD5C /* VGListManager.m */,
 				F44065891C4DE09D0041CD5C /* VGBaseList.h */,
 				F440658A1C4DE09D0041CD5C /* VGBaseList.m */,
+				F431770D1C5762420011637E /* VGDownloadList.h */,
+				F431770E1C5762420011637E /* VGDownloadList.m */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 				F4EC1CAA1C4CEF670027C7A3 /* VGFileOverduleCheck.h in Headers */,
 				F44065811C4DDCC50041CD5C /* VGTaskUploadManager.h in Headers */,
 				F45DDB941C56190600B17BC6 /* Task.h in Headers */,
+				F431770F1C5762420011637E /* VGDownloadList.h in Headers */,
 				F4EC1C9B1C4CEABC0027C7A3 /* VGBaseFileInfo.h in Headers */,
 				F4EC1CA31C4CEC4F0027C7A3 /* VGEnumFile.h in Headers */,
 				F45DDB771C56118C00B17BC6 /* CoreDataHelper.h in Headers */,
@@ -460,6 +467,7 @@
 				F45DDB951C56190600B17BC6 /* Task.m in Sources */,
 				F440657C1C4DD89C0041CD5C /* VGTaskDownloadManager.m in Sources */,
 				F41658301C50B16D00A35CB7 /* VGTaskDownload.m in Sources */,
+				F43177101C5762420011637E /* VGDownloadList.m in Sources */,
 				F45DDB911C56190600B17BC6 /* TaskQueue.m in Sources */,
 				F45DDB8D1C56190600B17BC6 /* Files.m in Sources */,
 				F45DDB781C56118C00B17BC6 /* CoreDataHelper.m in Sources */,

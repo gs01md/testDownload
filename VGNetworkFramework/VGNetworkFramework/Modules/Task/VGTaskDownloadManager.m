@@ -11,10 +11,6 @@
 
 @implementation VGTaskDownloadManager
 
-#pragma mark - interface
-
-
-
 #pragma mark - create
 
 static VGTaskDownloadManager *center = nil;
@@ -80,5 +76,105 @@ static NSString *strClass = @"VGTaskDownloadManager";
     return  TRUE;
     
 }
+
+
+
+#pragma mark - interface
+
+/**
+ *  根据“队列名”和“url” 创建一个下载任务
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ *  @return 下载任务对象
+ */
+- (VGTaskDownload *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+    return nil;
+}
+
+/**
+ *  根据“队列名”和“url” 重启一个下载任务
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ *  @return 下载任务对象
+ */
+- (VGTaskDownload *) restartDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+    return nil;
+}
+
+/**
+ *  根据“队列名”和“url” 暂停一个下载任务
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ *  @return 下载任务对象
+ */
+- (VGTaskDownload *) pauseDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+    return nil;
+}
+
+
+/**
+ *  根据“队列名”和“url” 删除一个下载任务
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ */
+- (void) deleteDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+    
+}
+
+/**
+ *  根据“队列名”和“url” 查询一个下载任务
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ */
+- (VGTaskDownload *) findDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+    return nil;
+}
+
+/**
+ *  根据“队列名”和“url” 检查本地文件是否存在
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ *  @return 下载任务对象
+ */
+- (BOOL) checkFileExistWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+    return TRUE;
+}
+
+/**
+ *  根据“队列名”和“url” 检查本地文件是否过期
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ *  @return 下载任务对象
+ */
+- (BOOL) checkFileValidWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+    return TRUE;
+}
+
+/**
+ *  根据“队列名”和“url” 检查任务是否在任务列表中
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ *  @return 下载任务对象
+ */
+- (BOOL) checkTaskInQueueWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+    return TRUE;
+}
+
 
 @end

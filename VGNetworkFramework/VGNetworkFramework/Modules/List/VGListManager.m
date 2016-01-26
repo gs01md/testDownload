@@ -10,8 +10,6 @@
 
 @implementation VGListManager
 
-#pragma mark - foundation
-
 
 #pragma mark - create
 
@@ -78,5 +76,9 @@ static NSString *strClass = @"VGListManager";
     return  TRUE;
     
 }
+
+
+#pragma mark - foundation
+
 
 @end
