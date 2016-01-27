@@ -7,7 +7,7 @@
 //  Created by Simon on 16/1/15.
 //  Copyright © 2016年 Simon. All rights reserved.
 //
-#import "Reachability.h"
+#import "VGReachability.h"
 #import <Foundation/Foundation.h>
 
 /**
@@ -43,7 +43,7 @@
 /**
  *  网络状态
  */
-@property (nonatomic, strong) Reachability *conn;
+@property (nonatomic, strong) VGReachability *conn;
 
 /**
  *  管理中心

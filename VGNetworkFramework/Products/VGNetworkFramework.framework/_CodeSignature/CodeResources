@@ -4,13 +4,13 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/Reachability.h</key>
-		<data>
-		p3hyfq4Lcg+hwelXRbI2B98aRW8=
-		</data>
 		<key>Headers/VGBaseFileInfo.h</key>
 		<data>
 		5fTjBLI5VTNasfMyPosAWvVPWTM=
+		</data>
+		<key>Headers/VGCGCoreDataHelper.h</key>
+		<data>
+		Coa8xDi6vyoHAGA1NcggWTy+ve0=
 		</data>
 		<key>Headers/VGEnumAll.h</key>
 		<data>
@@ -34,7 +34,11 @@
 		</data>
 		<key>Headers/VGNetworkStatus.h</key>
 		<data>
-		hMtf8DXU8WBe92t1dig20aIH0E0=
+		hLDOL6v6BSNTf/ba+EkFlttYdT8=
+		</data>
+		<key>Headers/VGReachability.h</key>
+		<data>
+		/5iB6qph4rB7F6zmWYU/MDD6bnk=
 		</data>
 		<key>Headers/VGTaskDownload.h</key>
 		<data>
@@ -67,13 +71,13 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/Reachability.h</key>
-		<data>
-		p3hyfq4Lcg+hwelXRbI2B98aRW8=
-		</data>
 		<key>Headers/VGBaseFileInfo.h</key>
 		<data>
 		5fTjBLI5VTNasfMyPosAWvVPWTM=
+		</data>
+		<key>Headers/VGCGCoreDataHelper.h</key>
+		<data>
+		Coa8xDi6vyoHAGA1NcggWTy+ve0=
 		</data>
 		<key>Headers/VGEnumAll.h</key>
 		<data>
@@ -97,7 +101,11 @@
 		</data>
 		<key>Headers/VGNetworkStatus.h</key>
 		<data>
-		hMtf8DXU8WBe92t1dig20aIH0E0=
+		hLDOL6v6BSNTf/ba+EkFlttYdT8=
+		</data>
+		<key>Headers/VGReachability.h</key>
+		<data>
+		/5iB6qph4rB7F6zmWYU/MDD6bnk=
 		</data>
 		<key>Headers/VGTaskDownload.h</key>
 		<data>

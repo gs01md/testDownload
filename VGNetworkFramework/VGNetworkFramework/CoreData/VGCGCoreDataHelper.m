@@ -6,10 +6,10 @@
 //  Copyright © 2016年 Simon. All rights reserved.
 //
 
-#import "CGCoreDataHelper.h"
+#import "VGCGCoreDataHelper.h"
 
 
-@implementation CGCoreDataHelper
+@implementation VGCGCoreDataHelper
 
 #define debug  1
 

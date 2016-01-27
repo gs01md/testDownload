@@ -82,7 +82,7 @@ static NSString *strClass = @"VGNetworkStatus";
  */
 - (void) initStatus{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStateChange) name:kReachabilityChangedNotification object:nil];
-         self.conn = [Reachability reachabilityForInternetConnection];
+         self.conn = [VGReachability reachabilityForInternetConnection];
          [self.conn startNotifier];
 }
 
@@ -98,10 +98,10 @@ static NSString *strClass = @"VGNetworkStatus";
  */
 - (void) checkNetworkState{
     // 1.检测wifi状态
-    Reachability *wifi = [Reachability reachabilityForLocalWiFi];
+    VGReachability *wifi = [VGReachability reachabilityForLocalWiFi];
 
     // 2.检测手机是否能上网络(WIFI\3G\2.5G)
-    Reachability *conn = [Reachability reachabilityForInternetConnection];
+    VGReachability *conn = [VGReachability reachabilityForInternetConnection];
 
     // 3.判断网络状态
     if ([wifi currentReachabilityStatus] != NotReachable) {

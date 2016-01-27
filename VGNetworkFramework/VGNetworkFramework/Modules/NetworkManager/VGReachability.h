@@ -21,7 +21,7 @@ typedef enum : NSInteger {
 extern NSString *kReachabilityChangedNotification;
 
 
-@interface Reachability : NSObject
+@interface VGReachability : NSObject
 
 /*!
  * Use to check the reachability of a given host name.
