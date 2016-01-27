@@ -6,16 +6,16 @@
 //  Copyright © 2016年 Simon. All rights reserved.
 //
 
-#import "CoreDataHelper.h"
+#import "CGCoreDataHelper.h"
 
 
-@implementation CoreDataHelper
+@implementation CGCoreDataHelper
 
 #define debug  1
 
 #pragma mark - FILES
 
-NSString *storeFilename = @"Grocery-Dude.sqlite";
+NSString *storeFilename = @"vg-download.sqlite";
 
 #pragma mark - PATHS
 - (NSString *)applicationDocumentsDirectory {
@@ -90,6 +90,8 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
     }
 }
 
+#pragma mark - setup
+
 - (void)setupCoreData {
     if (debug == 1) {
         NSLog(@"Running %@ '%@'",self.class, NSStringFromSelector(_cmd));
@@ -97,6 +99,8 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
     
     [self loadStore];
 }
+
+#pragma mark - save
 
 - (void)saveContext {
     if (debug == 1) {

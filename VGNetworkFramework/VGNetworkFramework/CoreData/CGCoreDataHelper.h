@@ -9,7 +9,7 @@
 #import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
 
-@interface CoreDataHelper : NSObject
+@interface CGCoreDataHelper : NSObject
 
 
 @property (nonatomic, readonly) NSManagedObjectContext       *context;

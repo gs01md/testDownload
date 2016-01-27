@@ -4,14 +4,24 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CombineFramework.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>VGNetworkFramework.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>F43E3F7C1C58A7F6000C7315</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F48C45361C48ECDA00EBD2A1</key>
 		<dict>
 			<key>primary</key>

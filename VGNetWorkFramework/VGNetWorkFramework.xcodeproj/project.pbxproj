@@ -6,20 +6,38 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		F43E3F7C1C58A7F6000C7315 /* CombineFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F43E3F7D1C58A7F6000C7315 /* Build configuration list for PBXAggregateTarget "CombineFramework" */;
+			buildPhases = (
+				F43E3F821C58A831000C7315 /* ShellScript */,
+			);
+			dependencies = (
+				F43E3F811C58A807000C7315 /* PBXTargetDependency */,
+			);
+			name = CombineFramework;
+			productName = CombineFramework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		F416582F1C50B16D00A35CB7 /* VGTaskDownload.h in Headers */ = {isa = PBXBuildFile; fileRef = F416582D1C50B16D00A35CB7 /* VGTaskDownload.h */; };
+		F416582F1C50B16D00A35CB7 /* VGTaskDownload.h in Headers */ = {isa = PBXBuildFile; fileRef = F416582D1C50B16D00A35CB7 /* VGTaskDownload.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F41658301C50B16D00A35CB7 /* VGTaskDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */; };
 		F431770F1C5762420011637E /* VGDownloadList.h in Headers */ = {isa = PBXBuildFile; fileRef = F431770D1C5762420011637E /* VGDownloadList.h */; };
 		F43177101C5762420011637E /* VGDownloadList.m in Sources */ = {isa = PBXBuildFile; fileRef = F431770E1C5762420011637E /* VGDownloadList.m */; };
+		F43E3F711C58761D000C7315 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43E3F701C58761D000C7315 /* SystemConfiguration.framework */; };
+		F43E3F741C589AB4000C7315 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = F43E3F721C589AB4000C7315 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F43E3F751C589AB4000C7315 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F43E3F731C589AB4000C7315 /* Reachability.m */; };
 		F440656F1C4DC6160041CD5C /* VGTaskUpload.h in Headers */ = {isa = PBXBuildFile; fileRef = F440656D1C4DC6160041CD5C /* VGTaskUpload.h */; };
 		F44065701C4DC6160041CD5C /* VGTaskUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = F440656E1C4DC6160041CD5C /* VGTaskUpload.m */; };
-		F44065731C4DD42C0041CD5C /* VGTaskExecutingInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065711C4DD42C0041CD5C /* VGTaskExecutingInfo.h */; };
+		F44065731C4DD42C0041CD5C /* VGTaskExecutingInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065711C4DD42C0041CD5C /* VGTaskExecutingInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F44065741C4DD42C0041CD5C /* VGTaskExecutingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F44065721C4DD42C0041CD5C /* VGTaskExecutingInfo.m */; };
 		F44065771C4DD7D50041CD5C /* VGUrlSourceValidCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065751C4DD7D50041CD5C /* VGUrlSourceValidCheck.h */; };
 		F44065781C4DD7D50041CD5C /* VGUrlSourceValidCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = F44065761C4DD7D50041CD5C /* VGUrlSourceValidCheck.m */; };
-		F440657B1C4DD89C0041CD5C /* VGTaskDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065791C4DD89C0041CD5C /* VGTaskDownloadManager.h */; };
+		F440657B1C4DD89C0041CD5C /* VGTaskDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065791C4DD89C0041CD5C /* VGTaskDownloadManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F440657C1C4DD89C0041CD5C /* VGTaskDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F440657A1C4DD89C0041CD5C /* VGTaskDownloadManager.m */; };
-		F440657E1C4DD8F00041CD5C /* VGEnumTask.h in Headers */ = {isa = PBXBuildFile; fileRef = F440657D1C4DD8F00041CD5C /* VGEnumTask.h */; };
+		F440657E1C4DD8F00041CD5C /* VGEnumTask.h in Headers */ = {isa = PBXBuildFile; fileRef = F440657D1C4DD8F00041CD5C /* VGEnumTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F44065811C4DDCC50041CD5C /* VGTaskUploadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F440657F1C4DDCC50041CD5C /* VGTaskUploadManager.h */; };
 		F44065821C4DDCC50041CD5C /* VGTaskUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F44065801C4DDCC50041CD5C /* VGTaskUploadManager.m */; };
 		F44065871C4DE0080041CD5C /* VGListManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065851C4DE0080041CD5C /* VGListManager.h */; };
@@ -28,10 +46,10 @@
 		F440658C1C4DE09D0041CD5C /* VGBaseList.m in Sources */ = {isa = PBXBuildFile; fileRef = F440658A1C4DE09D0041CD5C /* VGBaseList.m */; };
 		F44065901C4DE5800041CD5C /* VGPathManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F440658E1C4DE5800041CD5C /* VGPathManager.h */; };
 		F44065911C4DE5800041CD5C /* VGPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F440658F1C4DE5800041CD5C /* VGPathManager.m */; };
-		F44065931C4E10650041CD5C /* VGEnumList.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065921C4E10650041CD5C /* VGEnumList.h */; };
+		F44065931C4E10650041CD5C /* VGEnumList.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065921C4E10650041CD5C /* VGEnumList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F45DDB721C56109600B17BC6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45DDB711C56109600B17BC6 /* CoreData.framework */; };
-		F45DDB771C56118C00B17BC6 /* CoreDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = F45DDB751C56118C00B17BC6 /* CoreDataHelper.h */; };
-		F45DDB781C56118C00B17BC6 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB761C56118C00B17BC6 /* CoreDataHelper.m */; };
+		F45DDB771C56118C00B17BC6 /* CGCoreDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = F45DDB751C56118C00B17BC6 /* CGCoreDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F45DDB781C56118C00B17BC6 /* CGCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB761C56118C00B17BC6 /* CGCoreDataHelper.m */; };
 		F45DDB7C1C56144400B17BC6 /* VGNetWorkModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB7A1C56144400B17BC6 /* VGNetWorkModel.xcdatamodeld */; };
 		F45DDB8A1C56190600B17BC6 /* Files+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = F45DDB7E1C56190600B17BC6 /* Files+CoreDataProperties.h */; };
 		F45DDB8B1C56190600B17BC6 /* Files+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB7F1C56190600B17BC6 /* Files+CoreDataProperties.m */; };
@@ -51,18 +69,25 @@
 		F4EC1C901C4CEA370027C7A3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4EC1C8D1C4CEA370027C7A3 /* Info.plist */; };
 		F4EC1C911C4CEA370027C7A3 /* VGNetworkFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1C8E1C4CEA370027C7A3 /* VGNetworkFramework.h */; };
 		F4EC1C921C4CEA370027C7A3 /* VGNetworkFramework.pch in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1C8F1C4CEA370027C7A3 /* VGNetworkFramework.pch */; };
-		F4EC1C9B1C4CEABC0027C7A3 /* VGBaseFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1C991C4CEABC0027C7A3 /* VGBaseFileInfo.h */; };
+		F4EC1C9B1C4CEABC0027C7A3 /* VGBaseFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1C991C4CEABC0027C7A3 /* VGBaseFileInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4EC1C9C1C4CEABC0027C7A3 /* VGBaseFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC1C9A1C4CEABC0027C7A3 /* VGBaseFileInfo.m */; };
-		F4EC1CA01C4CEB140027C7A3 /* VGNetworkStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1C9E1C4CEB140027C7A3 /* VGNetworkStatus.h */; };
+		F4EC1CA01C4CEB140027C7A3 /* VGNetworkStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1C9E1C4CEB140027C7A3 /* VGNetworkStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4EC1CA11C4CEB140027C7A3 /* VGNetworkStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC1C9F1C4CEB140027C7A3 /* VGNetworkStatus.m */; };
-		F4EC1CA31C4CEC4F0027C7A3 /* VGEnumFile.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1CA21C4CEC4F0027C7A3 /* VGEnumFile.h */; };
+		F4EC1CA31C4CEC4F0027C7A3 /* VGEnumFile.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1CA21C4CEC4F0027C7A3 /* VGEnumFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4EC1CA61C4CEDE70027C7A3 /* VGImageFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1CA41C4CEDE70027C7A3 /* VGImageFileInfo.h */; };
 		F4EC1CA71C4CEDE70027C7A3 /* VGImageFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC1CA51C4CEDE70027C7A3 /* VGImageFileInfo.m */; };
-		F4EC1CAA1C4CEF670027C7A3 /* VGFileOverduleCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1CA81C4CEF670027C7A3 /* VGFileOverduleCheck.h */; };
+		F4EC1CAA1C4CEF670027C7A3 /* VGFileOverduleCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = F4EC1CA81C4CEF670027C7A3 /* VGFileOverduleCheck.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4EC1CAB1C4CEF670027C7A3 /* VGFileOverduleCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC1CA91C4CEF670027C7A3 /* VGFileOverduleCheck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F43E3F801C58A807000C7315 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F48C452E1C48ECDA00EBD2A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F48C45361C48ECDA00EBD2A1;
+			remoteInfo = VGNetworkFramework;
+		};
 		F48C45431C48ECDA00EBD2A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F48C452E1C48ECDA00EBD2A1 /* Project object */;
@@ -77,6 +102,9 @@
 		F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskDownload.m; sourceTree = "<group>"; };
 		F431770D1C5762420011637E /* VGDownloadList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGDownloadList.h; sourceTree = "<group>"; };
 		F431770E1C5762420011637E /* VGDownloadList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGDownloadList.m; sourceTree = "<group>"; };
+		F43E3F701C58761D000C7315 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F43E3F721C589AB4000C7315 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		F43E3F731C589AB4000C7315 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		F440656D1C4DC6160041CD5C /* VGTaskUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskUpload.h; sourceTree = "<group>"; };
 		F440656E1C4DC6160041CD5C /* VGTaskUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskUpload.m; sourceTree = "<group>"; };
 		F44065711C4DD42C0041CD5C /* VGTaskExecutingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskExecutingInfo.h; sourceTree = "<group>"; };
@@ -96,8 +124,8 @@
 		F440658F1C4DE5800041CD5C /* VGPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGPathManager.m; sourceTree = "<group>"; };
 		F44065921C4E10650041CD5C /* VGEnumList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGEnumList.h; sourceTree = "<group>"; };
 		F45DDB711C56109600B17BC6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		F45DDB751C56118C00B17BC6 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
-		F45DDB761C56118C00B17BC6 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		F45DDB751C56118C00B17BC6 /* CGCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCoreDataHelper.h; sourceTree = "<group>"; };
+		F45DDB761C56118C00B17BC6 /* CGCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCoreDataHelper.m; sourceTree = "<group>"; };
 		F45DDB7B1C56144400B17BC6 /* VGNetWorkModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VGNetWorkModel.xcdatamodel; sourceTree = "<group>"; };
 		F45DDB7E1C56190600B17BC6 /* Files+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Files+CoreDataProperties.h"; sourceTree = "<group>"; };
 		F45DDB7F1C56190600B17BC6 /* Files+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Files+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -135,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43E3F711C58761D000C7315 /* SystemConfiguration.framework in Frameworks */,
 				F45DDB721C56109600B17BC6 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,8 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				F45DDB7D1C5618DD00B17BC6 /* NSManagedObject */,
-				F45DDB751C56118C00B17BC6 /* CoreDataHelper.h */,
-				F45DDB761C56118C00B17BC6 /* CoreDataHelper.m */,
+				F45DDB751C56118C00B17BC6 /* CGCoreDataHelper.h */,
+				F45DDB761C56118C00B17BC6 /* CGCoreDataHelper.m */,
 				F45DDB7A1C56144400B17BC6 /* VGNetWorkModel.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -203,6 +232,7 @@
 		F45DDB791C56119600B17BC6 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				F43E3F701C58761D000C7315 /* SystemConfiguration.framework */,
 				F45DDB711C56109600B17BC6 /* CoreData.framework */,
 			);
 			name = Framework;
@@ -315,6 +345,8 @@
 		F4EC1C9D1C4CEB140027C7A3 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				F43E3F721C589AB4000C7315 /* Reachability.h */,
+				F43E3F731C589AB4000C7315 /* Reachability.m */,
 				F4EC1C9E1C4CEB140027C7A3 /* VGNetworkStatus.h */,
 				F4EC1C9F1C4CEB140027C7A3 /* VGNetworkStatus.m */,
 				F44065751C4DD7D50041CD5C /* VGUrlSourceValidCheck.h */,
@@ -330,32 +362,33 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F45DDB771C56118C00B17BC6 /* CGCoreDataHelper.h in Headers */,
+				F44065731C4DD42C0041CD5C /* VGTaskExecutingInfo.h in Headers */,
+				F440657E1C4DD8F00041CD5C /* VGEnumTask.h in Headers */,
+				F43E3F741C589AB4000C7315 /* Reachability.h in Headers */,
+				F4EC1CA01C4CEB140027C7A3 /* VGNetworkStatus.h in Headers */,
+				F44065931C4E10650041CD5C /* VGEnumList.h in Headers */,
+				F4EC1CA31C4CEC4F0027C7A3 /* VGEnumFile.h in Headers */,
+				F4EC1C9B1C4CEABC0027C7A3 /* VGBaseFileInfo.h in Headers */,
+				F4EC1CAA1C4CEF670027C7A3 /* VGFileOverduleCheck.h in Headers */,
+				F416582F1C50B16D00A35CB7 /* VGTaskDownload.h in Headers */,
+				F440657B1C4DD89C0041CD5C /* VGTaskDownloadManager.h in Headers */,
 				F44065871C4DE0080041CD5C /* VGListManager.h in Headers */,
 				F44065771C4DD7D50041CD5C /* VGUrlSourceValidCheck.h in Headers */,
 				F48C470F1C48F1C400EBD2A1 /* VGEnumAll.h in Headers */,
 				F4EC1CA61C4CEDE70027C7A3 /* VGImageFileInfo.h in Headers */,
 				F44065901C4DE5800041CD5C /* VGPathManager.h in Headers */,
-				F440657E1C4DD8F00041CD5C /* VGEnumTask.h in Headers */,
 				F45DDB8C1C56190600B17BC6 /* Files.h in Headers */,
 				F4EC1C911C4CEA370027C7A3 /* VGNetworkFramework.h in Headers */,
 				F45DDB8E1C56190600B17BC6 /* TaskQueue+CoreDataProperties.h in Headers */,
 				F440658B1C4DE09D0041CD5C /* VGBaseList.h in Headers */,
 				F440656F1C4DC6160041CD5C /* VGTaskUpload.h in Headers */,
-				F4EC1CAA1C4CEF670027C7A3 /* VGFileOverduleCheck.h in Headers */,
 				F44065811C4DDCC50041CD5C /* VGTaskUploadManager.h in Headers */,
 				F45DDB941C56190600B17BC6 /* Task.h in Headers */,
 				F431770F1C5762420011637E /* VGDownloadList.h in Headers */,
-				F4EC1C9B1C4CEABC0027C7A3 /* VGBaseFileInfo.h in Headers */,
-				F4EC1CA31C4CEC4F0027C7A3 /* VGEnumFile.h in Headers */,
-				F45DDB771C56118C00B17BC6 /* CoreDataHelper.h in Headers */,
-				F44065731C4DD42C0041CD5C /* VGTaskExecutingInfo.h in Headers */,
 				F45DDB901C56190600B17BC6 /* TaskQueue.h in Headers */,
-				F4EC1CA01C4CEB140027C7A3 /* VGNetworkStatus.h in Headers */,
-				F440657B1C4DD89C0041CD5C /* VGTaskDownloadManager.h in Headers */,
-				F44065931C4E10650041CD5C /* VGEnumList.h in Headers */,
 				F45DDB921C56190600B17BC6 /* Task+CoreDataProperties.h in Headers */,
 				F45DDB8A1C56190600B17BC6 /* Files+CoreDataProperties.h in Headers */,
-				F416582F1C50B16D00A35CB7 /* VGTaskDownload.h in Headers */,
 				F4EC1C921C4CEA370027C7A3 /* VGNetworkFramework.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +441,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Simon;
 				TargetAttributes = {
+					F43E3F7C1C58A7F6000C7315 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					F48C45361C48ECDA00EBD2A1 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -430,6 +466,7 @@
 			targets = (
 				F48C45361C48ECDA00EBD2A1 /* VGNetworkFramework */,
 				F48C45401C48ECDA00EBD2A1 /* VGNetworkFrameworkTests */,
+				F43E3F7C1C58A7F6000C7315 /* CombineFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -452,6 +489,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F43E3F821C58A831000C7315 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=${PROJECT_NAME}\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# -configuration ${CONFIGURATION}\n# Clean and Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos clean build\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator clean build\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\nmkdir -p \"${INSTALL_DIR}\"\n\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\n\nrm -r \"${WRK_DIR}\"\n\nopen \"${SRCROOT}/Products/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F48C45321C48ECDA00EBD2A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -470,10 +523,11 @@
 				F43177101C5762420011637E /* VGDownloadList.m in Sources */,
 				F45DDB911C56190600B17BC6 /* TaskQueue.m in Sources */,
 				F45DDB8D1C56190600B17BC6 /* Files.m in Sources */,
-				F45DDB781C56118C00B17BC6 /* CoreDataHelper.m in Sources */,
+				F45DDB781C56118C00B17BC6 /* CGCoreDataHelper.m in Sources */,
 				F45DDB8F1C56190600B17BC6 /* TaskQueue+CoreDataProperties.m in Sources */,
 				F4EC1C9C1C4CEABC0027C7A3 /* VGBaseFileInfo.m in Sources */,
 				F4EC1CA11C4CEB140027C7A3 /* VGNetworkStatus.m in Sources */,
+				F43E3F751C589AB4000C7315 /* Reachability.m in Sources */,
 				F44065911C4DE5800041CD5C /* VGPathManager.m in Sources */,
 				F44065821C4DDCC50041CD5C /* VGTaskUploadManager.m in Sources */,
 				F440658C1C4DE09D0041CD5C /* VGBaseList.m in Sources */,
@@ -493,6 +547,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F43E3F811C58A807000C7315 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F48C45361C48ECDA00EBD2A1 /* VGNetworkFramework */;
+			targetProxy = F43E3F801C58A807000C7315 /* PBXContainerItemProxy */;
+		};
 		F48C45441C48ECDA00EBD2A1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F48C45361C48ECDA00EBD2A1 /* VGNetworkFramework */;
@@ -501,6 +560,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		F43E3F7E1C58A7F6000C7315 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F43E3F7F1C58A7F6000C7315 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		F48C45491C48ECDA00EBD2A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -646,6 +719,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F43E3F7D1C58A7F6000C7315 /* Build configuration list for PBXAggregateTarget "CombineFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F43E3F7E1C58A7F6000C7315 /* Debug */,
+				F43E3F7F1C58A7F6000C7315 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F48C45311C48ECDA00EBD2A1 /* Build configuration list for PBXProject "VGNetworkFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -90,7 +90,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *  @return 下载任务对象
  */
 - (VGTaskDownload *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
-    return nil;
+    return [[VGTaskDownload alloc] initTaskAndStartwithUrl:@""];
 }
 
 /**

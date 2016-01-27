@@ -1,0 +1,6 @@
+framework module VGNetworkFramework {
+  umbrella header "VGNetworkFramework.h"
+
+  export *
+  module * { export * }
+}
