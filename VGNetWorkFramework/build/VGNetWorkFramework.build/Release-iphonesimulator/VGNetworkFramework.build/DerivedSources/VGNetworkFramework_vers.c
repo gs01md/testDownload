@@ -1,0 +1,1 @@
+ const unsigned char VGNetworkFrameworkVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:VGNetworkFramework  PROJECT:VGNetWorkFramework-1" "\n"; const double VGNetworkFrameworkVersionNumber __attribute__ ((used)) = (double)1.;

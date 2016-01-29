@@ -1,0 +1,88 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/build/Release-iphonesimulator/VGNetworkFramework.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "VGBaseFileInfo.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Modules/FileManager/VGBaseFileInfo.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGCGCoreDataHelper.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/CoreData/VGCGCoreDataHelper.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGEnumAll.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Enum/VGEnumAll.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGEnumFile.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Enum/VGEnumFile.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGEnumList.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Enum/VGEnumList.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGEnumTask.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Enum/VGEnumTask.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGFileOverduleCheck.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Modules/FileManager/VGFileOverduleCheck.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGNetworkFramework-Swift.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/build/Release-iphonesimulator/VGNetworkFramework.framework/Headers/VGNetworkFramework-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGNetworkStatus.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Modules/NetworkManager/VGNetworkStatus.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGReachability.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Modules/NetworkManager/VGReachability.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGTaskDownload.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Modules/Task/VGTaskDownload.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGTaskDownloadManager.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Modules/Task/VGTaskDownloadManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "VGTaskExecutingInfo.h",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/VGNetworkFramework/Modules/Task/VGTaskExecutingInfo.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/build/Release-iphonesimulator/VGNetworkFramework.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/simon/Documents/githubProjects/testDownload/VGNetWorkFramework/build/VGNetWorkFramework.build/Release-iphonesimulator/VGNetworkFramework.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

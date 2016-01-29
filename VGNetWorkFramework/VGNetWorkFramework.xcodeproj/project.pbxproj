@@ -6,22 +6,8 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		F43E3F7C1C58A7F6000C7315 /* CombineFramework */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = F43E3F7D1C58A7F6000C7315 /* Build configuration list for PBXAggregateTarget "CombineFramework" */;
-			buildPhases = (
-				F43E3F821C58A831000C7315 /* ShellScript */,
-			);
-			dependencies = (
-				F43E3F811C58A807000C7315 /* PBXTargetDependency */,
-			);
-			name = CombineFramework;
-			productName = CombineFramework;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
+		9DE89E8DC014C96C932D7949 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5076574710F866F82C50EE5B /* libPods.a */; };
 		F416582F1C50B16D00A35CB7 /* VGTaskDownload.h in Headers */ = {isa = PBXBuildFile; fileRef = F416582D1C50B16D00A35CB7 /* VGTaskDownload.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F41658301C50B16D00A35CB7 /* VGTaskDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */; };
 		F431770F1C5762420011637E /* VGDownloadList.h in Headers */ = {isa = PBXBuildFile; fileRef = F431770D1C5762420011637E /* VGDownloadList.h */; };
@@ -81,13 +67,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F43E3F801C58A807000C7315 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F48C452E1C48ECDA00EBD2A1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F48C45361C48ECDA00EBD2A1;
-			remoteInfo = VGNetworkFramework;
-		};
 		F48C45431C48ECDA00EBD2A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F48C452E1C48ECDA00EBD2A1 /* Project object */;
@@ -98,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5076574710F866F82C50EE5B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A3208C6DEF9E24B1DF948FC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F416582D1C50B16D00A35CB7 /* VGTaskDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskDownload.h; sourceTree = "<group>"; };
 		F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskDownload.m; sourceTree = "<group>"; };
 		F431770D1C5762420011637E /* VGDownloadList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGDownloadList.h; sourceTree = "<group>"; };
@@ -156,6 +137,7 @@
 		F4EC1CA51C4CEDE70027C7A3 /* VGImageFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGImageFileInfo.m; sourceTree = "<group>"; };
 		F4EC1CA81C4CEF670027C7A3 /* VGFileOverduleCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGFileOverduleCheck.h; sourceTree = "<group>"; };
 		F4EC1CA91C4CEF670027C7A3 /* VGFileOverduleCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGFileOverduleCheck.m; sourceTree = "<group>"; };
+		FD6CB39DF6C570CF9D42AA5D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +147,7 @@
 			files = (
 				F43E3F711C58761D000C7315 /* SystemConfiguration.framework in Frameworks */,
 				F45DDB721C56109600B17BC6 /* CoreData.framework in Frameworks */,
+				9DE89E8DC014C96C932D7949 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +162,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EE9E884435BC37EC040AEA3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD6CB39DF6C570CF9D42AA5D /* Pods.debug.xcconfig */,
+				6A3208C6DEF9E24B1DF948FC /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		85A243D5B9F6DFEFAA2375BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5076574710F866F82C50EE5B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F440656C1C4DC6160041CD5C /* Task */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +264,8 @@
 				F48C45391C48ECDA00EBD2A1 /* VGNetworkFramework */,
 				F48C45451C48ECDA00EBD2A1 /* VGNetworkFrameworkTests */,
 				F48C45381C48ECDA00EBD2A1 /* Products */,
+				0EE9E884435BC37EC040AEA3 /* Pods */,
+				85A243D5B9F6DFEFAA2375BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -400,10 +402,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F48C454B1C48ECDA00EBD2A1 /* Build configuration list for PBXNativeTarget "VGNetworkFramework" */;
 			buildPhases = (
+				543F33DD6FCF2B94B75967E3 /* Check Pods Manifest.lock */,
 				F48C45321C48ECDA00EBD2A1 /* Sources */,
 				F48C45331C48ECDA00EBD2A1 /* Frameworks */,
 				F48C45341C48ECDA00EBD2A1 /* Headers */,
 				F48C45351C48ECDA00EBD2A1 /* Resources */,
+				C4A61A16D8FD51B09E21714B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -441,9 +445,6 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Simon;
 				TargetAttributes = {
-					F43E3F7C1C58A7F6000C7315 = {
-						CreatedOnToolsVersion = 7.2;
-					};
 					F48C45361C48ECDA00EBD2A1 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -452,7 +453,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F48C45311C48ECDA00EBD2A1 /* Build configuration list for PBXProject "VGNetworkFramework" */;
+			buildConfigurationList = F48C45311C48ECDA00EBD2A1 /* Build configuration list for PBXProject "VGNetWorkFramework" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -466,7 +467,6 @@
 			targets = (
 				F48C45361C48ECDA00EBD2A1 /* VGNetworkFramework */,
 				F48C45401C48ECDA00EBD2A1 /* VGNetworkFrameworkTests */,
-				F43E3F7C1C58A7F6000C7315 /* CombineFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -490,18 +490,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F43E3F821C58A831000C7315 /* ShellScript */ = {
+		543F33DD6FCF2B94B75967E3 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=${PROJECT_NAME}\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# -configuration ${CONFIGURATION}\n# Clean and Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos clean build\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator clean build\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\nmkdir -p \"${INSTALL_DIR}\"\n\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\n\nrm -r \"${WRK_DIR}\"\n\nopen \"${SRCROOT}/Products/\"";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C4A61A16D8FD51B09E21714B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -547,11 +564,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F43E3F811C58A807000C7315 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F48C45361C48ECDA00EBD2A1 /* VGNetworkFramework */;
-			targetProxy = F43E3F801C58A807000C7315 /* PBXContainerItemProxy */;
-		};
 		F48C45441C48ECDA00EBD2A1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F48C45361C48ECDA00EBD2A1 /* VGNetworkFramework */;
@@ -560,20 +572,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		F43E3F7E1C58A7F6000C7315 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		F43E3F7F1C58A7F6000C7315 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		F48C45491C48ECDA00EBD2A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -664,6 +662,7 @@
 		};
 		F48C454C1C48ECDA00EBD2A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD6CB39DF6C570CF9D42AA5D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -673,6 +672,7 @@
 				INFOPLIST_FILE = VGNetworkFramework/system/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wood.VGNetworkFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -681,6 +681,7 @@
 		};
 		F48C454D1C48ECDA00EBD2A1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A3208C6DEF9E24B1DF948FC /* Pods.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -690,6 +691,7 @@
 				INFOPLIST_FILE = VGNetworkFramework/system/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wood.VGNetworkFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -719,16 +721,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F43E3F7D1C58A7F6000C7315 /* Build configuration list for PBXAggregateTarget "CombineFramework" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F43E3F7E1C58A7F6000C7315 /* Debug */,
-				F43E3F7F1C58A7F6000C7315 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F48C45311C48ECDA00EBD2A1 /* Build configuration list for PBXProject "VGNetworkFramework" */ = {
+		F48C45311C48ECDA00EBD2A1 /* Build configuration list for PBXProject "VGNetWorkFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F48C45491C48ECDA00EBD2A1 /* Debug */,

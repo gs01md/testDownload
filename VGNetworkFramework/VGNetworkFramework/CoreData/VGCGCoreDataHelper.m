@@ -9,7 +9,11 @@
 #import "VGCGCoreDataHelper.h"
 
 
+static VGCGCoreDataHelper *center = nil;
+static NSString *strClass = @"VGCGCoreDataHelper";
+
 @implementation VGCGCoreDataHelper
+
 
 #define debug  1
 
@@ -56,19 +60,15 @@ NSString *storeFilename = @"vg-download.sqlite";
     return [[self applicationStoresDirectory] URLByAppendingPathComponent:storeFilename];
 }
 
-- (id)init {
+- (void)initCoreData {
     if (debug == 1) {
         NSLog(@"Running %@ '%@'",self.class, NSStringFromSelector(_cmd));
     }
-    
-    if (self = [super init]) {
-        _model = [NSManagedObjectModel mergedModelFromBundles:nil];
-        _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
-        _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-        [_context setPersistentStoreCoordinator:_coordinator];
-    }
-    
-    return self;
+    _model = [NSManagedObjectModel mergedModelFromBundles:nil];
+    _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
+    _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    [_context setPersistentStoreCoordinator:_coordinator];
+
 }
 
 
@@ -120,4 +120,71 @@ NSString *storeFilename = @"vg-download.sqlite";
     }
     
 }
+
+#pragma mark - create
+
+/**
+ *  管理中心
+ *
+ *  @return 实例对象
+ */
++ (instancetype)sharedManagerCenter {
+    
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        
+        /**
+         *  这么做的原因是：在 init() 中会判断是否是本类，而不是子类
+         */
+        center = (VGCGCoreDataHelper *)strClass;
+        center = [[VGCGCoreDataHelper alloc] init];
+    });
+    
+    if (nil != center) {
+        if (FALSE == [center cantUsedBySubClass]) {
+            return nil;
+        }
+    }
+    
+    return center;
+}
+
+- (instancetype)init {
+    
+    NSString *string = (NSString *)center;
+    if ([string isKindOfClass:[NSString class]] == YES && [string isEqualToString:strClass]) {
+        
+        self = [super init];
+        if (self) {
+            
+            if (FALSE == [self cantUsedBySubClass]) {
+                return nil;
+            }
+            
+            [self initCoreData];
+        }
+        
+        return self;
+        
+    } else {
+        
+        return nil;
+    }
+}
+
+/**
+ *  防止子类使用，如果是子类，则会是不同的名称
+ */
+- (BOOL) cantUsedBySubClass {
+    
+    NSString *classString = NSStringFromClass([self class]);
+    if ([classString isEqualToString:strClass] == NO) {
+        
+        return  FALSE;
+    }
+    
+    return  TRUE;
+    
+}
+
 @end

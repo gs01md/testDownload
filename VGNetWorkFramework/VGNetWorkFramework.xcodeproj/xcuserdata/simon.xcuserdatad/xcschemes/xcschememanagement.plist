@@ -4,10 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CombineFramework.xcscheme</key>
+		<key>VGNetWorkFramework.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<true/>
 		</dict>
 		<key>VGNetworkFramework.xcscheme</key>
 		<dict>

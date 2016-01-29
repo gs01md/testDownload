@@ -74,7 +74,10 @@
  */
 @property(nonatomic , assign) TASK_STATUS m_taskStatus;
 
-
+/**
+ *  下载暂停数据
+ */
+@property(nonatomic , strong) NSData *m_resumeData;
 
 /**
  *  起始时间
