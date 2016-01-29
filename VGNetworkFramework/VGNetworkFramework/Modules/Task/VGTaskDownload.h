@@ -90,6 +90,11 @@
 @property(nonatomic , strong) NSDate *m_dateFinish;
 
 /**
+ *  所属队列名称
+ */
+@property(nonatomic , strong) NSString *m_queueName;
+
+/**
  *  任务代理
  */
 @property(nonatomic , strong) id<protocol_downloadTask> m_protocol_baseTask;
@@ -112,10 +117,8 @@
 -(void)taskRestart;
 
 /**
- *  根据“队列名”和“url” 记录下载进度
+ *   记录下载进度
  *
- *  @param strUrl   下载链接
- *  @param strQueue 下载队列名称--为自定义队列名称
  *  @param length下载长度的最大值
  *
  */
