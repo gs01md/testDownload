@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Task.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TaskQueue : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
+@property (nonatomic,strong)NSArray<Task*> *m_arrayTask;
 
 @end
 

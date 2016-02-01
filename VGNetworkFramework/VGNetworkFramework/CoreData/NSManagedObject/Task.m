@@ -7,9 +7,12 @@
 //
 
 #import "Task.h"
-
+#import "VGCGCoreDataHelper.h"
 @implementation Task
 
-// Insert code here to add functionality to your managed object subclass
-
+-(void)fetchRequest{
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    NSArray *itemObjects = [[VGCGCoreDataHelper sharedManagerCenter].context executeFetchRequest:request error:nil];
+}
 @end

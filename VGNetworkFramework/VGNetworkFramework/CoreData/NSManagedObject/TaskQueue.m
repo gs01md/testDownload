@@ -10,6 +10,7 @@
 
 @implementation TaskQueue
 
-// Insert code here to add functionality to your managed object subclass
+@synthesize m_arrayTask;
+
 
 @end

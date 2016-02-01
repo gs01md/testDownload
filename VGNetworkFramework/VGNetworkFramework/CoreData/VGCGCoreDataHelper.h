@@ -18,7 +18,12 @@
 @property (nonatomic, readonly) NSPersistentStore            *store;
 
 + (instancetype)sharedManagerCenter;
-- (void)setupCoreData;
+
+//- (void)setupCoreData;//初始化时自动加载
+
+/**
+ *  保存更改
+ */
 - (void)saveContext;
 
 @end

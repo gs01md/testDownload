@@ -52,6 +52,8 @@ static NSString *strClass = @"VGTaskDownloadManager";
             if (FALSE == [self cantUsedBySubClass]) {
                 return nil;
             }
+            
+            self.m_listManager = [VGListManager sharedManagerCenter];
         }
         
         return self;

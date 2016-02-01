@@ -10,6 +10,7 @@
 
 #import "VGBaseFileInfo.h"
 #import "VGNetworkStatus.h"
+#import "VGListManager.h"
 #import "VGTaskExecutingInfo.h"
 #import <Foundation/Foundation.h>
 
@@ -42,6 +43,11 @@
 @end
 
 @interface VGTaskDownload : NSObject<Protocol_VGNetworkStatus>
+
+/**
+ *  任务等列表管理
+ */
+@property(nonatomic, strong)VGListManager *m_listManager;
 
 /**
  *  下载任务类型：上传 或 下载，暂时只有下载
@@ -117,7 +123,7 @@
 -(void)taskRestart;
 
 /**
- *   记录下载进度
+ *  记录下载进度
  *
  *  @param length下载长度的最大值
  *

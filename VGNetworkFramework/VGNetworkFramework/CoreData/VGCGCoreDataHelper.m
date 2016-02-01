@@ -119,10 +119,16 @@ static NSString *strClass = @"VGCGCoreDataHelper";
     if (debug == 1) {
         NSLog(@"Running %@ '%@'",self.class, NSStringFromSelector(_cmd));
     }
-    _model = [NSManagedObjectModel mergedModelFromBundles:nil];
+    
+    NSArray<NSBundle *> *bundles = [NSBundle allFrameworks];
+    //NSArray<NSBundle *> *bundles = [[NSArray alloc] init];
+    
+    _model = [NSManagedObjectModel mergedModelFromBundles:bundles];
     _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
     _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     [_context setPersistentStoreCoordinator:_coordinator];
+    
+    [self loadStore];
     
 }
 
@@ -202,5 +208,13 @@ NSString *storeFilename = @"vg-download.sqlite";
         NSLog(@"Running %@ '%@'",self.class, NSStringFromSelector(_cmd));
     }
     return [[self applicationStoresDirectory] URLByAppendingPathComponent:storeFilename];
+}
+
++ (NSBundle *)resourceBundle:(NSString *)bundleName{
+    
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"]; //显然这里你也可以通过其他的方式取得，总之找到bundle的完整路径即可。
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    
+    return bundle;
 }
 @end

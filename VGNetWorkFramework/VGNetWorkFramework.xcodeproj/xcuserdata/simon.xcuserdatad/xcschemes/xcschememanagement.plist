@@ -4,10 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CoredataBundle.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>VGNetWorkFramework.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>VGNetworkFramework.xcscheme</key>
 		<dict>
@@ -18,6 +25,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>F43E3F7C1C58A7F6000C7315</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4490C6B1C5F5EDB00EFBC40</key>
 		<dict>
 			<key>primary</key>
 			<true/>

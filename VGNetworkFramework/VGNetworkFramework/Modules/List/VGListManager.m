@@ -52,6 +52,8 @@ static NSString *strClass = @"VGListManager";
             if (FALSE == [self cantUsedBySubClass]) {
                 return nil;
             }
+            
+            self.m_downloadList = [[VGDownloadList alloc] init];
         }
         
         return self;

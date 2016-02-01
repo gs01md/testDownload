@@ -6,8 +6,14 @@
 //  Copyright © 2016年 Simon. All rights reserved.
 //
 
-#import "VGBaseList.h"
+#import "TaskQueue.h"
+#import "VGCGCoreDataHelper.h"
 
-@interface VGDownloadList : VGBaseList
+@interface VGDownloadList : NSObject
+
+/**
+ *  任务队列数组
+ */
+@property (nonatomic, strong) NSArray<TaskQueue *> *m_arrayTaskQueue;
 
 @end
