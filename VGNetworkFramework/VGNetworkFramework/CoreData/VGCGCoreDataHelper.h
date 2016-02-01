@@ -17,6 +17,7 @@
 @property (nonatomic, readonly) NSPersistentStoreCoordinator *coordinator;
 @property (nonatomic, readonly) NSPersistentStore            *store;
 
++ (instancetype)sharedManagerCenter;
 - (void)setupCoreData;
 - (void)saveContext;
 

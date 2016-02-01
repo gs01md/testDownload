@@ -7,7 +7,7 @@
 //
 
 #import "VGTaskDownloadManager.h"
-
+#import "VGCGCoreDataHelper.h"
 
 @implementation VGTaskDownloadManager
 
@@ -89,7 +89,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *
  *  @return 下载任务对象
  */
-- (VGTaskDownload *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+- (VGTaskDownload *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     return [[VGTaskDownload alloc] initTaskAndStartwithUrl:@""];
 }
 
@@ -101,7 +101,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *
  *  @return 下载任务对象
  */
-- (VGTaskDownload *) restartDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+- (VGTaskDownload *) restartDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     return nil;
 }
 
@@ -113,7 +113,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *
  *  @return 下载任务对象
  */
-- (VGTaskDownload *) pauseDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+- (VGTaskDownload *) pauseDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     return nil;
 }
 
@@ -125,7 +125,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *  @param strQueue 下载队列名称--为自定义队列名称
  *
  */
-- (void) deleteDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+- (void) deleteDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
 }
 
@@ -136,7 +136,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *  @param strQueue 下载队列名称--为自定义队列名称
  *
  */
-- (VGTaskDownload *) findDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+- (VGTaskDownload *) findDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     return nil;
 }
 
@@ -148,7 +148,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *
  *  @return 下载任务对象
  */
-- (BOOL) checkFileExistWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+- (BOOL) checkFileExistWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     return TRUE;
 }
 
@@ -160,7 +160,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *
  *  @return 下载任务对象
  */
-- (BOOL) checkFileValidWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+- (BOOL) checkFileValidWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     return TRUE;
 }
 
@@ -172,9 +172,15 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *
  *  @return 下载任务对象
  */
-- (BOOL) checkTaskInQueueWithUrl:(NSString *)strUrl queue:(NSString *)strQueue{
+- (BOOL) checkTaskInQueueWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     return TRUE;
 }
 
+/**
+ *  保存更改到数据库
+ */
+- (void) saveChangeToCoreData {
+    [[VGCGCoreDataHelper sharedManagerCenter] saveContext];
+}
 
 @end

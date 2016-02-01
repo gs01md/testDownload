@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4490C651C5F2DC500EFBC40 /* VGNetworkFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4F052D81C5A12E100DE555A /* VGNetworkFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F48C44C11C48EA2100EBD2A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F48C44C01C48EA2100EBD2A1 /* main.m */; };
 		F48C44C41C48EA2100EBD2A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F48C44C31C48EA2100EBD2A1 /* AppDelegate.m */; };
 		F48C44C71C48EA2100EBD2A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48C44C61C48EA2100EBD2A1 /* ViewController.m */; };
@@ -35,6 +36,20 @@
 			remoteInfo = testDownLoad;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F4490C661C5F2DC500EFBC40 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F4490C651C5F2DC500EFBC40 /* VGNetworkFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F48C44BC1C48EA2000EBD2A1 /* testDownLoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testDownLoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +170,7 @@
 				F48C44B81C48EA2000EBD2A1 /* Sources */,
 				F48C44B91C48EA2000EBD2A1 /* Frameworks */,
 				F48C44BA1C48EA2000EBD2A1 /* Resources */,
+				F4490C661C5F2DC500EFBC40 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

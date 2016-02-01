@@ -120,4 +120,9 @@
  */
 - (BOOL) checkTaskInQueueWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
 
+/**
+ *  保存更改到数据库
+ */
+- (void) saveChangeToCoreData;
+
 @end
