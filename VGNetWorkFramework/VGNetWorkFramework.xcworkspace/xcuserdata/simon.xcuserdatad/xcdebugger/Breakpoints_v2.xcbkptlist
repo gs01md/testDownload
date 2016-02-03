@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VGNetworkFramework/Modules/List/VGDownloadList.m"
-            timestampString = "476009360.305401"
+            filePath = "VGNetworkFramework/Modules/Task/VGTaskDownload.m"
+            timestampString = "476172542.858475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-getTaskArrayFromCoreData"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "-taskStart"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VGNetworkFramework/Modules/Task/VGTaskDownload.m"
+            timestampString = "476172542.858475"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-taskRestart"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

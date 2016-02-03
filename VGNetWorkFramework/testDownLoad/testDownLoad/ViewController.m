@@ -48,7 +48,7 @@
 
 #pragma mark - fundation
 - (void) taskManager {
-    self.m_down = [[VGTaskDownloadManager sharedManagerCenter] createDownloadTaskWithUrl:@"" queue:@""];
+    self.m_down = [[VGTaskDownloadManager sharedManagerCenter] createDownloadTaskWithUrl:@"https://qd.myapp.com/myapp/qqteam/AndroidQQ/mobileqq_android.apk" queue:@"default"];
 }
 
 - (IBAction)startEvent:(id)sender {

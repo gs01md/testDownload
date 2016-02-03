@@ -12,6 +12,15 @@
 		F41658301C50B16D00A35CB7 /* VGTaskDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */; };
 		F431770F1C5762420011637E /* VGDownloadList.h in Headers */ = {isa = PBXBuildFile; fileRef = F431770D1C5762420011637E /* VGDownloadList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F43177101C5762420011637E /* VGDownloadList.m in Sources */ = {isa = PBXBuildFile; fileRef = F431770E1C5762420011637E /* VGDownloadList.m */; };
+		F43B4AAC1C61F1E200BCE060 /* VGNetworkFrameworkTools.h in Headers */ = {isa = PBXBuildFile; fileRef = F43B4AAA1C61F1E200BCE060 /* VGNetworkFrameworkTools.h */; };
+		F43B4AAD1C61F1E200BCE060 /* VGNetworkFrameworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F43B4AAB1C61F1E200BCE060 /* VGNetworkFrameworkTools.m */; };
+		F43B4AAF1C61F4C700BCE060 /* VGNetworkFrameworkMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = F43B4AAE1C61F4C700BCE060 /* VGNetworkFrameworkMacro.h */; };
+		F43B4AC31C620AC000BCE060 /* Files+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = F43B4ABD1C620ABF00BCE060 /* Files+CoreDataProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F43B4AC41C620AC000BCE060 /* Files+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F43B4ABE1C620ABF00BCE060 /* Files+CoreDataProperties.m */; };
+		F43B4AC51C620AC000BCE060 /* TaskQueue+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = F43B4ABF1C620ABF00BCE060 /* TaskQueue+CoreDataProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F43B4AC61C620AC000BCE060 /* TaskQueue+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F43B4AC01C620AC000BCE060 /* TaskQueue+CoreDataProperties.m */; };
+		F43B4AC71C620AC000BCE060 /* Task+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = F43B4AC11C620AC000BCE060 /* Task+CoreDataProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F43B4AC81C620AC000BCE060 /* Task+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F43B4AC21C620AC000BCE060 /* Task+CoreDataProperties.m */; };
 		F43E3F711C58761D000C7315 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43E3F701C58761D000C7315 /* SystemConfiguration.framework */; };
 		F43E3F741C589AB4000C7315 /* VGReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = F43E3F721C589AB4000C7315 /* VGReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F43E3F751C589AB4000C7315 /* VGReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F43E3F731C589AB4000C7315 /* VGReachability.m */; };
@@ -38,16 +47,10 @@
 		F45DDB771C56118C00B17BC6 /* VGCGCoreDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = F45DDB751C56118C00B17BC6 /* VGCGCoreDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F45DDB781C56118C00B17BC6 /* VGCGCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB761C56118C00B17BC6 /* VGCGCoreDataHelper.m */; };
 		F45DDB7C1C56144400B17BC6 /* VGNetWorkModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB7A1C56144400B17BC6 /* VGNetWorkModel.xcdatamodeld */; };
-		F45DDB8A1C56190600B17BC6 /* Files+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = F45DDB7E1C56190600B17BC6 /* Files+CoreDataProperties.h */; };
-		F45DDB8B1C56190600B17BC6 /* Files+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB7F1C56190600B17BC6 /* Files+CoreDataProperties.m */; };
 		F45DDB8C1C56190600B17BC6 /* Files.h in Headers */ = {isa = PBXBuildFile; fileRef = F45DDB801C56190600B17BC6 /* Files.h */; };
 		F45DDB8D1C56190600B17BC6 /* Files.m in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB811C56190600B17BC6 /* Files.m */; };
-		F45DDB8E1C56190600B17BC6 /* TaskQueue+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = F45DDB821C56190600B17BC6 /* TaskQueue+CoreDataProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F45DDB8F1C56190600B17BC6 /* TaskQueue+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB831C56190600B17BC6 /* TaskQueue+CoreDataProperties.m */; };
 		F45DDB901C56190600B17BC6 /* TaskQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = F45DDB841C56190600B17BC6 /* TaskQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F45DDB911C56190600B17BC6 /* TaskQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB851C56190600B17BC6 /* TaskQueue.m */; };
-		F45DDB921C56190600B17BC6 /* Task+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = F45DDB861C56190600B17BC6 /* Task+CoreDataProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F45DDB931C56190600B17BC6 /* Task+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB871C56190600B17BC6 /* Task+CoreDataProperties.m */; };
 		F45DDB941C56190600B17BC6 /* Task.h in Headers */ = {isa = PBXBuildFile; fileRef = F45DDB881C56190600B17BC6 /* Task.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F45DDB951C56190600B17BC6 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = F45DDB891C56190600B17BC6 /* Task.m */; };
 		F48C45421C48ECDA00EBD2A1 /* VGNetworkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48C45371C48ECDA00EBD2A1 /* VGNetworkFramework.framework */; };
@@ -84,6 +87,15 @@
 		F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskDownload.m; sourceTree = "<group>"; };
 		F431770D1C5762420011637E /* VGDownloadList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGDownloadList.h; sourceTree = "<group>"; };
 		F431770E1C5762420011637E /* VGDownloadList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGDownloadList.m; sourceTree = "<group>"; };
+		F43B4AAA1C61F1E200BCE060 /* VGNetworkFrameworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkFrameworkTools.h; sourceTree = "<group>"; };
+		F43B4AAB1C61F1E200BCE060 /* VGNetworkFrameworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGNetworkFrameworkTools.m; sourceTree = "<group>"; };
+		F43B4AAE1C61F4C700BCE060 /* VGNetworkFrameworkMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkFrameworkMacro.h; sourceTree = "<group>"; };
+		F43B4ABD1C620ABF00BCE060 /* Files+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Files+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F43B4ABE1C620ABF00BCE060 /* Files+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Files+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F43B4ABF1C620ABF00BCE060 /* TaskQueue+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TaskQueue+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F43B4AC01C620AC000BCE060 /* TaskQueue+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TaskQueue+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F43B4AC11C620AC000BCE060 /* Task+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Task+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F43B4AC21C620AC000BCE060 /* Task+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Task+CoreDataProperties.m"; sourceTree = "<group>"; };
 		F43E3F701C58761D000C7315 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F43E3F721C589AB4000C7315 /* VGReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGReachability.h; sourceTree = "<group>"; };
 		F43E3F731C589AB4000C7315 /* VGReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGReachability.m; sourceTree = "<group>"; };
@@ -110,16 +122,10 @@
 		F45DDB751C56118C00B17BC6 /* VGCGCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGCGCoreDataHelper.h; sourceTree = "<group>"; };
 		F45DDB761C56118C00B17BC6 /* VGCGCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGCGCoreDataHelper.m; sourceTree = "<group>"; };
 		F45DDB7B1C56144400B17BC6 /* VGNetWorkModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VGNetWorkModel.xcdatamodel; sourceTree = "<group>"; };
-		F45DDB7E1C56190600B17BC6 /* Files+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Files+CoreDataProperties.h"; sourceTree = "<group>"; };
-		F45DDB7F1C56190600B17BC6 /* Files+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Files+CoreDataProperties.m"; sourceTree = "<group>"; };
 		F45DDB801C56190600B17BC6 /* Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Files.h; sourceTree = "<group>"; };
 		F45DDB811C56190600B17BC6 /* Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Files.m; sourceTree = "<group>"; };
-		F45DDB821C56190600B17BC6 /* TaskQueue+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TaskQueue+CoreDataProperties.h"; sourceTree = "<group>"; };
-		F45DDB831C56190600B17BC6 /* TaskQueue+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TaskQueue+CoreDataProperties.m"; sourceTree = "<group>"; };
 		F45DDB841C56190600B17BC6 /* TaskQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskQueue.h; sourceTree = "<group>"; };
 		F45DDB851C56190600B17BC6 /* TaskQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskQueue.m; sourceTree = "<group>"; };
-		F45DDB861C56190600B17BC6 /* Task+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Task+CoreDataProperties.h"; sourceTree = "<group>"; };
-		F45DDB871C56190600B17BC6 /* Task+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Task+CoreDataProperties.m"; sourceTree = "<group>"; };
 		F45DDB881C56190600B17BC6 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		F45DDB891C56190600B17BC6 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		F48C45371C48ECDA00EBD2A1 /* VGNetworkFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VGNetworkFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +185,29 @@
 				5076574710F866F82C50EE5B /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F43B4AA91C61F19200BCE060 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F43B4AAA1C61F1E200BCE060 /* VGNetworkFrameworkTools.h */,
+				F43B4AAB1C61F1E200BCE060 /* VGNetworkFrameworkTools.m */,
+				F43B4AAE1C61F4C700BCE060 /* VGNetworkFrameworkMacro.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		F43B4AB01C6208A400BCE060 /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				F43B4ABD1C620ABF00BCE060 /* Files+CoreDataProperties.h */,
+				F43B4ABE1C620ABF00BCE060 /* Files+CoreDataProperties.m */,
+				F43B4ABF1C620ABF00BCE060 /* TaskQueue+CoreDataProperties.h */,
+				F43B4AC01C620AC000BCE060 /* TaskQueue+CoreDataProperties.m */,
+				F43B4AC11C620AC000BCE060 /* Task+CoreDataProperties.h */,
+				F43B4AC21C620AC000BCE060 /* Task+CoreDataProperties.m */,
+			);
+			name = Properties;
 			sourceTree = "<group>";
 		};
 		F440656C1C4DC6160041CD5C /* Task */ = {
@@ -251,16 +280,11 @@
 		F45DDB7D1C5618DD00B17BC6 /* NSManagedObject */ = {
 			isa = PBXGroup;
 			children = (
-				F45DDB7E1C56190600B17BC6 /* Files+CoreDataProperties.h */,
-				F45DDB7F1C56190600B17BC6 /* Files+CoreDataProperties.m */,
+				F43B4AB01C6208A400BCE060 /* Properties */,
 				F45DDB801C56190600B17BC6 /* Files.h */,
 				F45DDB811C56190600B17BC6 /* Files.m */,
-				F45DDB821C56190600B17BC6 /* TaskQueue+CoreDataProperties.h */,
-				F45DDB831C56190600B17BC6 /* TaskQueue+CoreDataProperties.m */,
 				F45DDB841C56190600B17BC6 /* TaskQueue.h */,
 				F45DDB851C56190600B17BC6 /* TaskQueue.m */,
-				F45DDB861C56190600B17BC6 /* Task+CoreDataProperties.h */,
-				F45DDB871C56190600B17BC6 /* Task+CoreDataProperties.m */,
 				F45DDB881C56190600B17BC6 /* Task.h */,
 				F45DDB891C56190600B17BC6 /* Task.m */,
 			);
@@ -292,6 +316,7 @@
 		F48C45391C48ECDA00EBD2A1 /* VGNetworkFramework */ = {
 			isa = PBXGroup;
 			children = (
+				F43B4AA91C61F19200BCE060 /* Tools */,
 				F45DDB741C56116C00B17BC6 /* CoreData */,
 				F4EC1C8C1C4CEA370027C7A3 /* System */,
 				F4EC1C861C4CE9870027C7A3 /* Modules */,
@@ -375,8 +400,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F45DDB921C56190600B17BC6 /* Task+CoreDataProperties.h in Headers */,
-				F45DDB8E1C56190600B17BC6 /* TaskQueue+CoreDataProperties.h in Headers */,
+				F43B4AC31C620AC000BCE060 /* Files+CoreDataProperties.h in Headers */,
+				F43B4AC51C620AC000BCE060 /* TaskQueue+CoreDataProperties.h in Headers */,
+				F43B4AC71C620AC000BCE060 /* Task+CoreDataProperties.h in Headers */,
 				F45DDB941C56190600B17BC6 /* Task.h in Headers */,
 				F45DDB901C56190600B17BC6 /* TaskQueue.h in Headers */,
 				F431770F1C5762420011637E /* VGDownloadList.h in Headers */,
@@ -387,6 +413,7 @@
 				F43E3F741C589AB4000C7315 /* VGReachability.h in Headers */,
 				F4EC1CA01C4CEB140027C7A3 /* VGNetworkStatus.h in Headers */,
 				F44065931C4E10650041CD5C /* VGEnumList.h in Headers */,
+				F43B4AAF1C61F4C700BCE060 /* VGNetworkFrameworkMacro.h in Headers */,
 				F4EC1CA31C4CEC4F0027C7A3 /* VGEnumFile.h in Headers */,
 				F4EC1C9B1C4CEABC0027C7A3 /* VGBaseFileInfo.h in Headers */,
 				F4EC1CAA1C4CEF670027C7A3 /* VGFileOverduleCheck.h in Headers */,
@@ -401,7 +428,7 @@
 				F440658B1C4DE09D0041CD5C /* VGBaseList.h in Headers */,
 				F440656F1C4DC6160041CD5C /* VGTaskUpload.h in Headers */,
 				F44065811C4DDCC50041CD5C /* VGTaskUploadManager.h in Headers */,
-				F45DDB8A1C56190600B17BC6 /* Files+CoreDataProperties.h in Headers */,
+				F43B4AAC1C61F1E200BCE060 /* VGNetworkFrameworkTools.h in Headers */,
 				F4EC1C921C4CEA370027C7A3 /* VGNetworkFramework.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,11 +568,12 @@
 			files = (
 				F44065881C4DE0080041CD5C /* VGListManager.m in Sources */,
 				F44065741C4DD42C0041CD5C /* VGTaskExecutingInfo.m in Sources */,
+				F43B4AC81C620AC000BCE060 /* Task+CoreDataProperties.m in Sources */,
 				F4EC1CAB1C4CEF670027C7A3 /* VGFileOverduleCheck.m in Sources */,
-				F45DDB8B1C56190600B17BC6 /* Files+CoreDataProperties.m in Sources */,
+				F43B4AC41C620AC000BCE060 /* Files+CoreDataProperties.m in Sources */,
 				F44065701C4DC6160041CD5C /* VGTaskUpload.m in Sources */,
+				F43B4AC61C620AC000BCE060 /* TaskQueue+CoreDataProperties.m in Sources */,
 				F45DDB7C1C56144400B17BC6 /* VGNetWorkModel.xcdatamodeld in Sources */,
-				F45DDB931C56190600B17BC6 /* Task+CoreDataProperties.m in Sources */,
 				F45DDB951C56190600B17BC6 /* Task.m in Sources */,
 				F440657C1C4DD89C0041CD5C /* VGTaskDownloadManager.m in Sources */,
 				F41658301C50B16D00A35CB7 /* VGTaskDownload.m in Sources */,
@@ -553,10 +581,10 @@
 				F45DDB911C56190600B17BC6 /* TaskQueue.m in Sources */,
 				F45DDB8D1C56190600B17BC6 /* Files.m in Sources */,
 				F45DDB781C56118C00B17BC6 /* VGCGCoreDataHelper.m in Sources */,
-				F45DDB8F1C56190600B17BC6 /* TaskQueue+CoreDataProperties.m in Sources */,
 				F4EC1C9C1C4CEABC0027C7A3 /* VGBaseFileInfo.m in Sources */,
 				F4EC1CA11C4CEB140027C7A3 /* VGNetworkStatus.m in Sources */,
 				F43E3F751C589AB4000C7315 /* VGReachability.m in Sources */,
+				F43B4AAD1C61F1E200BCE060 /* VGNetworkFrameworkTools.m in Sources */,
 				F44065911C4DE5800041CD5C /* VGPathManager.m in Sources */,
 				F44065821C4DDCC50041CD5C /* VGTaskUploadManager.m in Sources */,
 				F440658C1C4DE09D0041CD5C /* VGBaseList.m in Sources */,

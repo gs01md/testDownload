@@ -8,31 +8,43 @@
 #import "VGNetworkStatus.h"
 #import "VGTaskDownload.h"
 #import <AFURLSessionManager.h>
-
+#import "VGDownloadList.h"
+#import "VGNetworkFrameworkTools.h"
 
 
 @interface VGTaskDownload () {
     
 }
 
-@property(nonatomic , strong) NSURLSessionDownloadTask *m_sessionDownloadTask;
+@property(nonatomic , strong) NSURLSessionDownloadTask * m_sessionDownloadTask;
 
 @end
 
 @implementation VGTaskDownload
+
 /**
  *  创建任务并启动
  *  根据url，要检测--数据库中是否已经有该数据
  *  @param strUrl 网络资源路径
  */
-- (instancetype) initTaskAndStartwithUrl:(NSString*)strUrl{
+- (instancetype) initTaskAndStartwithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
     if (self = [super init]) {
         _m_strSourceUrl = strUrl;
-        _m_strSourceUrl = @"https://qd.myapp.com/myapp/qqteam/AndroidQQ/mobileqq_android.apk";
+        
+        /**
+         *  队列名可以为空，因为有个默认队列
+         */
+        _m_queueName = [VGNetworkFrameworkTools stringTrim:strQueue];
+        if (nil == _m_queueName) {
+            _m_queueName = DEFUALT_QUEUE;
+        }
+        
         [VGNetworkStatus sharedManagerCenter];//测试网络状态变化...
-        [self loadResumeDatafromCoreData];
-        [self taskStart];
+        
+        [self loadResumeDatafromCoreData];//加载断点下载数据
+        
+        [self taskStart];//开始下载
     }
     
     return self;
@@ -42,27 +54,32 @@
  *  尝试从数据库里加载“继续数据”,然后赋值给 m_resumeData
  */
 - (void) loadResumeDatafromCoreData {
-    self.m_resumeData = nil;
+    
+    self.m_resumeData = [[VGListManager sharedManagerCenter].m_downloadList getResumeDataWithQueue:self.m_queueName url:self.m_strSourceUrl];
+    
 }
 
 /**
  *  暂停任务
  */
-- (void) taskPause{
+- (void) taskPause {
     __weak typeof(self) weakSelf = self;
     [self.m_sessionDownloadTask cancelByProducingResumeData:^(NSData *resumeData) {
         /**
          *  resumeData : 包含了继续下载的开始位置\下载的url
          */
         weakSelf.m_resumeData = resumeData;
+        
         weakSelf.m_sessionDownloadTask = nil;
+        
+        [[VGListManager sharedManagerCenter].m_downloadList saveResumeDataWithQueue:weakSelf.m_queueName url:weakSelf.m_strSourceUrl resume:weakSelf.m_resumeData];
     }];
 }
 
 /**
  *  继续下载任务
  */
-- (void) taskRestart{
+- (void) taskRestart {
     /**
      *  如果“继续数据”为空，则要使用重新开始接口进行下载
      */
@@ -79,6 +96,7 @@
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        NSLog(@"%@", documentsDirectoryURL);
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (nil == error) {
@@ -97,7 +115,7 @@
 /**
  *  从0开始下载任务
  */
-- (void) taskStart{
+- (void) taskStart {
     /**
      *  如果“继续数据”不为空，则要使用继续下载接口进行下载
      */
@@ -125,17 +143,16 @@
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        NSLog(@"%@", documentsDirectoryURL);
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
         
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         
-        if (nil == error) {
-            NSLog(@"response:%@;error:%@",response,error);
+        if (nil != error) {
+            NSLog(@"有误：response:%@;filePath:%@",response,filePath);
         } else {
-            NSLog(@"完成");
+            NSLog(@"成功：response:%@;error:%@",response,error);
         }
-        
-        
         
     }];
     
@@ -149,7 +166,7 @@
  *  @param length下载长度的最大值
  *
  */
-- (void) progressDownloadedLength:(double) length{
+- (void) progressDownloadedLength:(double) length {
     
 }
 
@@ -160,7 +177,7 @@
  *
  *  @param currentNetworkType 当前的网络类型
  */
-- (void) networkStatusWithNetworkType:(VGNETWORKTYPE)currentNetworkType{
+- (void) networkStatusWithNetworkType:(VGNETWORKTYPE)currentNetworkType {
     
 }
 

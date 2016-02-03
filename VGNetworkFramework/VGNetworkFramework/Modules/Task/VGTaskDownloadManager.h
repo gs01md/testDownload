@@ -24,13 +24,19 @@
 #import "VGFileOverduleCheck.h"
 #import <Foundation/Foundation.h>
 #import "VGListManager.h"
+#import "VGTaskDownload.h"
 
 @interface VGTaskDownloadManager : NSObject
 /**
- *  所有任务
+ *  所有列表
  */
 @property (nonatomic, strong) VGListManager *m_listManager;
 
+
+/**
+ *  所有任务
+ */
+@property (nonatomic, strong) NSMutableArray<VGTaskDownload *> * m_arrayTaskDownload;
 
 
 /**

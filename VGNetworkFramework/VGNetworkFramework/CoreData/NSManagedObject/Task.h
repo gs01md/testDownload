@@ -15,6 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)fetchRequest;
 
+/**
+ *  如果不存在 任务，则创建
+ *
+ *  @param name ：队列名称
+ */
+- (void) saveDataWithResume:(NSData *) resumeData;
+
 @end
 
 NS_ASSUME_NONNULL_END

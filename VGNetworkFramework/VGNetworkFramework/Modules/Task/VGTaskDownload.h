@@ -54,6 +54,10 @@
  */
 @property(nonatomic , assign , readonly) VGTASK_TYPE m_taskType;
 
+/**
+ *  所属队列名称
+ */
+@property(nonatomic , strong, readonly) NSString *m_queueName;
 
 /**
  *  下载文件网络路径
@@ -95,10 +99,6 @@
  */
 @property(nonatomic , strong) NSDate *m_dateFinish;
 
-/**
- *  所属队列名称
- */
-@property(nonatomic , strong) NSString *m_queueName;
 
 /**
  *  任务代理
@@ -110,7 +110,7 @@
  *
  *  @param strUrl 网络资源路径
  */
-- (instancetype) initTaskAndStartwithUrl:(NSString*)strUrl;
+- (instancetype) initTaskAndStartwithUrl:(NSString*)strUrl queue:(NSString *)strQueue;
 
 /**
  *  暂停任务

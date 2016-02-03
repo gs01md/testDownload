@@ -10,5 +10,6 @@
 #define VGNetworkFramework_pch
 
 #import "VGEnumAll.h"
+#import "VGNetworkFrameworkMacro.h"
 
 #endif /* VGNetworkFramework_pch */

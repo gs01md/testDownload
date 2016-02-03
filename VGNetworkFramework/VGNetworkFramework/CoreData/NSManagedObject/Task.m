@@ -12,7 +12,22 @@
 
 -(void)fetchRequest{
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
-    NSArray *itemObjects = [[VGCGCoreDataHelper sharedManagerCenter].context executeFetchRequest:request error:nil];
 }
+
+
+/**
+ *  如果不存在 任务，则创建
+ *
+ *  @param name ：队列名称
+ */
+- (void) saveDataWithResume:(NSData *) resumeData {
+
+    self.resumeData = resumeData;
+    
+    //从内存保存到数据库
+    [[VGCGCoreDataHelper sharedManagerCenter] saveContext];
+    
+}
+
+
 @end

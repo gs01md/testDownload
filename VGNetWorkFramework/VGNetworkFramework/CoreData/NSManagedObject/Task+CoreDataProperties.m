@@ -1,8 +1,8 @@
 //
 //  Task+CoreDataProperties.m
-//  VGNetworkFramework
+//  VGNetWorkFramework
 //
-//  Created by Simon on 16/1/25.
+//  Created by Simon on 16/2/3.
 //  Copyright © 2016年 Simon. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,7 +13,11 @@
 
 @implementation Task (CoreDataProperties)
 
-@dynamic url;
+@dynamic downSize;
+@dynamic fileTotalSize;
 @dynamic taskQueueId;
+@dynamic taskStatus;
+@dynamic url;
+@dynamic resumeData;
 
 @end

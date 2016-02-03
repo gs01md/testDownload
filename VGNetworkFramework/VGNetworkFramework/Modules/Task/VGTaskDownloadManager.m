@@ -54,6 +54,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
             }
             
             self.m_listManager = [VGListManager sharedManagerCenter];
+            self.m_arrayTaskDownload = [[NSMutableArray alloc] init];
         }
         
         return self;
@@ -92,7 +93,12 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *  @return 下载任务对象
  */
 - (VGTaskDownload *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
-    return [[VGTaskDownload alloc] initTaskAndStartwithUrl:@""];
+    
+    VGTaskDownload *task = [[VGTaskDownload alloc] initTaskAndStartwithUrl:strUrl queue:(NSString *)strQueue];
+    
+    [self addToArrayTask: task];
+    
+    return task;
 }
 
 /**
@@ -183,6 +189,33 @@ static NSString *strClass = @"VGTaskDownloadManager";
  */
 - (void) saveChangeToCoreData {
     [[VGCGCoreDataHelper sharedManagerCenter] saveContext];
+}
+
+
+#pragma mark - function
+/**
+ *  创建完任务后，把他添加到列表中
+ *
+ *  @param task： 任务
+ */
+- (void) addToArrayTask:(VGTaskDownload *)task{
+    if (nil != task && nil != self.m_arrayTaskDownload) {
+        [self.m_arrayTaskDownload addObject:task];
+    }
+}
+
+
+#pragma mark - test
+/**
+ *  测试下载
+ */
+- (void) testTask {
+    if (DEBUG) {
+        NSString *strSourceUrl = @"https://qd.myapp.com/myapp/qqteam/AndroidQQ/mobileqq_android.apk";
+        NSString *strQueue = DEFUALT_QUEUE;
+        [self createDownloadTaskWithUrl:strSourceUrl queue:strQueue];
+
+    }
 }
 
 @end
