@@ -211,6 +211,12 @@
  */
 - (void) successDownload {
     [self.m_listManager.m_downloadList removeTaskWithQueue:self.m_queueName url:self.m_strSourceUrl];
+    
+    if([self.delegate respondsToSelector:@selector(taskDidFinishedSuccessed:url:filePath:)]){
+        
+        //如果有，则调用它的实现
+        [self.delegate taskDidFinishedSuccessed:self.m_queueName url:self.m_strSourceUrl filePath:nil];
+    }
 }
 
 /**

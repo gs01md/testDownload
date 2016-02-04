@@ -96,6 +96,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
     
     VGTaskDownload *task = [[VGTaskDownload alloc] initTaskAndStartwithUrl:strUrl queue:(NSString *)strQueue];
     
+    task.delegate = self;
     [self addToArrayTask:task];
 
     return task;
@@ -249,7 +250,9 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *  @param task： 任务
  */
 - (void) addToArrayTask:(VGTaskDownload *)task{
+    
     if (nil != task && nil != self.m_arrayTaskDownload) {
+        
         [self.m_arrayTaskDownload addObject:task];
     }
 }
@@ -272,6 +275,19 @@ static NSString *strClass = @"VGTaskDownloadManager";
         }
     }
     
+}
+
+#pragma mark - VGTaskDownload 代理
+/**
+ *  任务结束后，移除任务
+ *
+ *  @param strQueue    队列
+ *  @param strUrl      资源url
+ *  @param strFilePath 保存的文件路径
+ */
+-(void)taskDidFinishedSuccessed:(NSString *)strQueue url:(NSString *)strUrl filePath:(NSString *)strFilePath{
+    
+    [self removeTaskDownloadFromArray:strUrl queue:strQueue];
 }
 
 #pragma mark - test

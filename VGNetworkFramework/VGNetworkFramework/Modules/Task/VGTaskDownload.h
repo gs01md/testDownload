@@ -18,7 +18,7 @@
  *  任务代理
  */
 @protocol protocol_downloadTask <NSObject>
-
+@optional
 /**
  *  任务下载中抛出信息
  *  可能是任务完成百分比...
@@ -38,7 +38,7 @@
  *
  *  @param strFilePath 抛出下载后的文件路径
  */
-- (void) taskDidFinishedSuccessed:(NSString*)strFilePath;
+- (void) taskDidFinishedSuccessed:(NSString *)strQueue url:(NSString *)strUrl filePath:(NSString*)strFilePath;
 
 @end
 
@@ -103,7 +103,7 @@
 /**
  *  任务代理
  */
-@property(nonatomic , strong) id<protocol_downloadTask> m_protocol_baseTask;
+@property(nonatomic , strong) id<protocol_downloadTask> delegate;
 
 /**
  *  创建任务并启动

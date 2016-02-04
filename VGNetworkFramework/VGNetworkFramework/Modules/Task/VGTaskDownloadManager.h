@@ -26,7 +26,8 @@
 #import "VGListManager.h"
 #import "VGTaskDownload.h"
 
-@interface VGTaskDownloadManager : NSObject
+
+@interface VGTaskDownloadManager : NSObject<protocol_downloadTask>
 /**
  *  所有列表
  */
