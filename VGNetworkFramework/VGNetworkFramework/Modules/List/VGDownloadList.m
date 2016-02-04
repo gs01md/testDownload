@@ -119,16 +119,15 @@
  *  @return ：状态数据
  */
 - (NSData *) getResumeDataWithQueue:(NSString *)strQueue url:(NSString *)strUrl {
+    
     NSData * data = nil;
     
     TaskQueue * taskQueue = [self getTaskQueue:strQueue];
     
     if (nil != taskQueue) {
-        Task * task = [taskQueue getTaskWithUrl:strUrl];
         
-        if (nil != task) {
-            data = task.resumeData;
-        }
+        data = [taskQueue getResumeDataWithUrl:strUrl];
+        
     }
     
     return data;
@@ -143,16 +142,31 @@
  */
 - (void) saveResumeDataWithQueue:(NSString *)strQueue url:(NSString *)strUrl resume:(NSData *)resumeData {
     
+    [self saveDataWithName:strQueue];
+    
     TaskQueue * taskQueue = [self getTaskQueue:strQueue];
     
     if (nil != taskQueue) {
-        Task * task = [taskQueue getTaskWithUrl:strUrl];
         
-        if (nil != task) {
-            
-            [task saveDataWithResume: resumeData];
-        }
+        [taskQueue saveTaskWithUrl:strUrl resume:resumeData];
     }
+}
+
+/**
+ *  从数据库删除任务，并重新加载到队列里
+ *
+ *  @param strQueue   队列名称
+ *  @param strUrl     任务url
+ */
+- (void) removeTaskWithQueue:(NSString *)strQueue url:(NSString *)strUrl {
+    TaskQueue * taskQueue = [self getTaskQueue:strQueue];
+    
+    if (nil != taskQueue) {
+        
+        [taskQueue removeTaskWithUrl:strUrl];
+        
+    }
+
 }
 
 

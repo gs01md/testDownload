@@ -80,6 +80,9 @@ static NSString *strClass = @"VGListManager";
 }
 
 
+#pragma mark - interface
+
+
 #pragma mark - foundation
 
 

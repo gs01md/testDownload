@@ -33,4 +33,12 @@
  *  @param resumeData 下载状态
  */
 - (void) saveResumeDataWithQueue:(NSString *)strQueue url:(NSString *)strUrl resume:(NSData *)resumeData;
+
+/**
+ *  从数据库删除任务，并重新加载到队列里
+ *
+ *  @param strQueue   队列名称
+ *  @param strUrl     任务url
+ */
+- (void) removeTaskWithQueue:(NSString *)strQueue url:(NSString *)strUrl;
 @end

@@ -30,6 +30,8 @@
 - (instancetype) initTaskAndStartwithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
     if (self = [super init]) {
+        
+        self.m_taskStatus = TASK_STATUS_CREATED;
         _m_strSourceUrl = strUrl;
         
         /**
@@ -63,8 +65,11 @@
  *  暂停任务
  */
 - (void) taskPause {
+    
     __weak typeof(self) weakSelf = self;
+    
     [self.m_sessionDownloadTask cancelByProducingResumeData:^(NSData *resumeData) {
+        
         /**
          *  resumeData : 包含了继续下载的开始位置\下载的url
          */
@@ -73,6 +78,8 @@
         weakSelf.m_sessionDownloadTask = nil;
         
         [[VGListManager sharedManagerCenter].m_downloadList saveResumeDataWithQueue:weakSelf.m_queueName url:weakSelf.m_strSourceUrl resume:weakSelf.m_resumeData];
+        
+        self.m_taskStatus = TASK_STATUS_PAUSING;
     }];
 }
 
@@ -80,6 +87,9 @@
  *  继续下载任务
  */
 - (void) taskRestart {
+    
+    self.m_taskStatus = TASK_STATUS_DOWNLOADING;
+    
     /**
      *  如果“继续数据”为空，则要使用重新开始接口进行下载
      */
@@ -92,18 +102,30 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     self.m_sessionDownloadTask = [manager downloadTaskWithResumeData:self.m_resumeData progress:^(NSProgress * _Nonnull downloadProgress) {
+        
         NSLog(@"%@",downloadProgress);
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
         NSLog(@"%@", documentsDirectoryURL);
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+        
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        if (nil == error) {
-            NSLog(@"response:%@;error:%@",response,error);
+        
+        if (nil != error) {
+            NSLog(@"出错：response:%@;error:%@",response,error);
+            self.m_taskStatus = TASK_STATUS_ERROR;
+            
+            [self faildDownload];
+            
         } else {
-            NSLog(@"完成");
+            NSLog(@"成功：response:%@;error:%@",response,error);
+            self.m_taskStatus = TASK_STATUS_FINISHED;
+            
+            [self successDownload];
         }
+        
     }];
     
     
@@ -116,6 +138,8 @@
  *  从0开始下载任务
  */
 - (void) taskStart {
+    
+    self.m_taskStatus = TASK_STATUS_DOWNLOADING;
     /**
      *  如果“继续数据”不为空，则要使用继续下载接口进行下载
      */
@@ -142,6 +166,7 @@
         NSLog(@"%@",downloadProgress);
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
         NSLog(@"%@", documentsDirectoryURL);
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
@@ -149,9 +174,18 @@
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         
         if (nil != error) {
-            NSLog(@"有误：response:%@;filePath:%@",response,filePath);
+            NSLog(@"出错：response:%@;error:%@",response,error);
+            self.m_taskStatus = TASK_STATUS_ERROR;
+            
+            [self faildDownload];
+            
         } else {
             NSLog(@"成功：response:%@;error:%@",response,error);
+
+            self.m_taskStatus = TASK_STATUS_FINISHED;
+            
+            [self successDownload];
+            
         }
         
     }];
@@ -170,6 +204,23 @@
     
 }
 
+/**
+ *  成功：完成下载之后的处理
+ *  1. 删除数据库的记录
+ *  2. 保存文件列表到数据库，并同步到内存文件列表中
+ */
+- (void) successDownload {
+    [self.m_listManager.m_downloadList removeTaskWithQueue:self.m_queueName url:self.m_strSourceUrl];
+}
+
+/**
+ *  失败：完成下载之后的处理
+ *  1. 删除数据库的记录
+ *  2. 保存文件列表到数据库，并同步到内存文件列表中
+ */
+- (void) faildDownload {
+    
+}
 
 #pragma mark - 网络状态代理
 /**

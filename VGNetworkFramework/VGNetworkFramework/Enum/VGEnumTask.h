@@ -87,6 +87,11 @@ typedef enum {
      */
     TASK_STATUS_FINISHED,
     
+    /**
+     *  任务出错
+     */
+    TASK_STATUS_ERROR,
+    
 }TASK_STATUS;
 
 #endif /* VGEnumTask_h */

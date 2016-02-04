@@ -96,8 +96,8 @@ static NSString *strClass = @"VGTaskDownloadManager";
     
     VGTaskDownload *task = [[VGTaskDownload alloc] initTaskAndStartwithUrl:strUrl queue:(NSString *)strQueue];
     
-    [self addToArrayTask: task];
-    
+    [self addToArrayTask:task];
+
     return task;
 }
 
@@ -110,6 +110,14 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *  @return 下载任务对象
  */
 - (VGTaskDownload *) restartDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
+    
+    VGTaskDownload *taskDownload = [self findDownloadTaskWithUrl:strUrl queue:strQueue];
+    
+    if (nil != taskDownload) {
+        
+        [taskDownload taskRestart];
+    }
+    
     return nil;
 }
 
@@ -122,6 +130,14 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *  @return 下载任务对象
  */
 - (VGTaskDownload *) pauseDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
+    
+    VGTaskDownload *taskDownload = [self findDownloadTaskWithUrl:strUrl queue:strQueue];
+    
+    if (nil != taskDownload) {
+        
+        [taskDownload taskPause];
+    }
+    
     return nil;
 }
 
@@ -135,6 +151,11 @@ static NSString *strClass = @"VGTaskDownloadManager";
  */
 - (void) deleteDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
+    //从列表移除
+    [self removeTaskDownloadFromArray:strUrl queue:strQueue];
+    
+    //释放资源
+    
 }
 
 /**
@@ -145,7 +166,21 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *
  */
 - (VGTaskDownload *) findDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
-    return nil;
+    
+    VGTaskDownload * taskDownload = nil;
+    
+    for (VGTaskDownload * temp in self.m_arrayTaskDownload) {
+        
+        if ([temp.m_strSourceUrl isEqualToString:strUrl] &&
+            [temp.m_queueName isEqualToString:strQueue]) {
+            
+            taskDownload = temp;
+            
+            break;
+        }
+    }
+    
+    return taskDownload;
 }
 
 /**
@@ -157,7 +192,8 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *  @return 下载任务对象
  */
 - (BOOL) checkFileExistWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
-    return TRUE;
+    
+    return FALSE;
 }
 
 /**
@@ -181,7 +217,21 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *  @return 下载任务对象
  */
 - (BOOL) checkTaskInQueueWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
-    return TRUE;
+    
+    BOOL isExist = FALSE;
+    
+    for (VGTaskDownload * temp in self.m_arrayTaskDownload) {
+        
+        if ([temp.m_strSourceUrl isEqualToString:strUrl] &&
+            [temp.m_queueName isEqualToString:strQueue]) {
+            
+            isExist = TRUE;
+            
+            break;
+        }
+    }
+    
+    return isExist;
 }
 
 /**
@@ -204,13 +254,34 @@ static NSString *strClass = @"VGTaskDownloadManager";
     }
 }
 
+/**
+ *  把任务从列表移除
+ *
+ *  @param taskDownload 任务对象
+ */
+- (void) removeTaskDownloadFromArray:(NSString *)strUrl queue:(NSString *)strQueue {
+    
+    for (VGTaskDownload * temp in self.m_arrayTaskDownload) {
+        
+        if ([temp.m_strSourceUrl isEqualToString:strUrl] &&
+            [temp.m_queueName isEqualToString:strQueue]) {
+            
+            [self.m_arrayTaskDownload removeObject:temp];
+            
+            break;
+        }
+    }
+    
+}
 
 #pragma mark - test
 /**
  *  测试下载
  */
 - (void) testTask {
+    
     if (DEBUG) {
+        
         NSString *strSourceUrl = @"https://qd.myapp.com/myapp/qqteam/AndroidQQ/mobileqq_android.apk";
         NSString *strQueue = DEFUALT_QUEUE;
         [self createDownloadTaskWithUrl:strSourceUrl queue:strQueue];

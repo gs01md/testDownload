@@ -228,6 +228,7 @@
 				TargetAttributes = {
 					F48C44BB1C48EA2000EBD2A1 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8SN9TJYA97;
 					};
 					F48C44D41C48EA2100EBD2A1 = {
 						CreatedOnToolsVersion = 7.2;
@@ -435,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = testDownLoad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/ @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wood.testDownLoad;
@@ -446,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = testDownLoad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/ @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wood.testDownLoad;

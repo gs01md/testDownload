@@ -14,7 +14,7 @@
 @interface VGListManager : NSObject
 
 /**
- *  下载列表
+ *  下载信息列表
  */
 @property (nonatomic, strong)VGDownloadList *m_downloadList;
 

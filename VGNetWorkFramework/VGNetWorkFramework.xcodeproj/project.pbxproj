@@ -133,7 +133,7 @@
 		F48C45461C48ECDA00EBD2A1 /* VGNetworkFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VGNetworkFrameworkTests.m; sourceTree = "<group>"; };
 		F48C45481C48ECDA00EBD2A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F48C470E1C48F1C400EBD2A1 /* VGEnumAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGEnumAll.h; sourceTree = "<group>"; };
-		F4EC1C8D1C4CEA370027C7A3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4EC1C8D1C4CEA370027C7A3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../System/Info.plist; sourceTree = "<group>"; };
 		F4EC1C8E1C4CEA370027C7A3 /* VGNetworkFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkFramework.h; sourceTree = "<group>"; };
 		F4EC1C8F1C4CEA370027C7A3 /* VGNetworkFramework.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkFramework.pch; sourceTree = "<group>"; };
 		F4EC1C991C4CEABC0027C7A3 /* VGBaseFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGBaseFileInfo.h; sourceTree = "<group>"; };
@@ -233,6 +233,7 @@
 				F44065851C4DE0080041CD5C /* VGListManager.h */,
 				F44065861C4DE0080041CD5C /* VGListManager.m */,
 				F44065891C4DE09D0041CD5C /* VGBaseList.h */,
+				F4EC1C8D1C4CEA370027C7A3 /* Info.plist */,
 				F440658A1C4DE09D0041CD5C /* VGBaseList.m */,
 				F431770D1C5762420011637E /* VGDownloadList.h */,
 				F431770E1C5762420011637E /* VGDownloadList.m */,
@@ -360,7 +361,6 @@
 		F4EC1C8C1C4CEA370027C7A3 /* System */ = {
 			isa = PBXGroup;
 			children = (
-				F4EC1C8D1C4CEA370027C7A3 /* Info.plist */,
 				F4EC1C8E1C4CEA370027C7A3 /* VGNetworkFramework.h */,
 				F4EC1C8F1C4CEA370027C7A3 /* VGNetworkFramework.pch */,
 			);

@@ -9,5 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface VGNetworkFrameworkTools : NSObject
-+(NSString *) stringTrim:(NSString *)str;
+/**
+ *  去掉字符串两边的空格
+ */
++ (NSString *) stringTrim:(NSString *)str;
+
+/**
+ *  对字符串进行MD5加密
+ */
++ (NSString *) stringByMD5:(NSString *)str;
+
 @end

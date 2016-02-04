@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VGNetworkFramework/Modules/Task/VGTaskDownload.m"
-            timestampString = "476172542.858475"
+            timestampString = "476264659.480314"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-taskStart"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-taskRestart"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VGNetworkFramework/Modules/Task/VGTaskDownload.m"
-            timestampString = "476172542.858475"
+            timestampString = "476265133.880304"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-taskRestart"
             landmarkType = "5">
          </BreakpointContent>
