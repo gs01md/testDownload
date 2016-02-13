@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E28DA1C1C6F60D400355796 /* VGTaskDownload.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E28DA111C6F60D400355796 /* VGTaskDownload.h */; };
+		6E28DA1D1C6F60D400355796 /* VGTaskDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E28DA121C6F60D400355796 /* VGTaskDownload.m */; };
+		6E28DA1E1C6F60D400355796 /* VGTaskDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E28DA131C6F60D400355796 /* VGTaskDownloadManager.h */; };
+		6E28DA1F1C6F60D400355796 /* VGTaskDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E28DA141C6F60D400355796 /* VGTaskDownloadManager.m */; };
+		6E28DA221C6F60D400355796 /* VGTaskUpload.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E28DA181C6F60D400355796 /* VGTaskUpload.h */; };
+		6E28DA231C6F60D400355796 /* VGTaskUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E28DA191C6F60D400355796 /* VGTaskUpload.m */; };
+		6E28DA241C6F60D400355796 /* VGTaskUploadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E28DA1A1C6F60D400355796 /* VGTaskUploadManager.h */; };
+		6E28DA251C6F60D400355796 /* VGTaskUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E28DA1B1C6F60D400355796 /* VGTaskUploadManager.m */; };
+		6E28DA281C6F610600355796 /* VGTaskDownloadQueueManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E28DA261C6F610600355796 /* VGTaskDownloadQueueManager.h */; };
+		6E28DA291C6F610600355796 /* VGTaskDownloadQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E28DA271C6F610600355796 /* VGTaskDownloadQueueManager.m */; };
 		9DE89E8DC014C96C932D7949 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5076574710F866F82C50EE5B /* libPods.a */; };
-		F416582F1C50B16D00A35CB7 /* VGTaskDownload.h in Headers */ = {isa = PBXBuildFile; fileRef = F416582D1C50B16D00A35CB7 /* VGTaskDownload.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F41658301C50B16D00A35CB7 /* VGTaskDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */; };
 		F431770F1C5762420011637E /* VGDownloadList.h in Headers */ = {isa = PBXBuildFile; fileRef = F431770D1C5762420011637E /* VGDownloadList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F43177101C5762420011637E /* VGDownloadList.m in Sources */ = {isa = PBXBuildFile; fileRef = F431770E1C5762420011637E /* VGDownloadList.m */; };
 		F43B4AAC1C61F1E200BCE060 /* VGNetworkFrameworkTools.h in Headers */ = {isa = PBXBuildFile; fileRef = F43B4AAA1C61F1E200BCE060 /* VGNetworkFrameworkTools.h */; };
@@ -24,17 +32,11 @@
 		F43E3F711C58761D000C7315 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43E3F701C58761D000C7315 /* SystemConfiguration.framework */; };
 		F43E3F741C589AB4000C7315 /* VGReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = F43E3F721C589AB4000C7315 /* VGReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F43E3F751C589AB4000C7315 /* VGReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F43E3F731C589AB4000C7315 /* VGReachability.m */; };
-		F440656F1C4DC6160041CD5C /* VGTaskUpload.h in Headers */ = {isa = PBXBuildFile; fileRef = F440656D1C4DC6160041CD5C /* VGTaskUpload.h */; };
-		F44065701C4DC6160041CD5C /* VGTaskUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = F440656E1C4DC6160041CD5C /* VGTaskUpload.m */; };
 		F44065731C4DD42C0041CD5C /* VGTaskExecutingInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065711C4DD42C0041CD5C /* VGTaskExecutingInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F44065741C4DD42C0041CD5C /* VGTaskExecutingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F44065721C4DD42C0041CD5C /* VGTaskExecutingInfo.m */; };
 		F44065771C4DD7D50041CD5C /* VGUrlSourceValidCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065751C4DD7D50041CD5C /* VGUrlSourceValidCheck.h */; };
 		F44065781C4DD7D50041CD5C /* VGUrlSourceValidCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = F44065761C4DD7D50041CD5C /* VGUrlSourceValidCheck.m */; };
-		F440657B1C4DD89C0041CD5C /* VGTaskDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065791C4DD89C0041CD5C /* VGTaskDownloadManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F440657C1C4DD89C0041CD5C /* VGTaskDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F440657A1C4DD89C0041CD5C /* VGTaskDownloadManager.m */; };
 		F440657E1C4DD8F00041CD5C /* VGEnumTask.h in Headers */ = {isa = PBXBuildFile; fileRef = F440657D1C4DD8F00041CD5C /* VGEnumTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F44065811C4DDCC50041CD5C /* VGTaskUploadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F440657F1C4DDCC50041CD5C /* VGTaskUploadManager.h */; };
-		F44065821C4DDCC50041CD5C /* VGTaskUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F44065801C4DDCC50041CD5C /* VGTaskUploadManager.m */; };
 		F44065871C4DE0080041CD5C /* VGListManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065851C4DE0080041CD5C /* VGListManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F44065881C4DE0080041CD5C /* VGListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F44065861C4DE0080041CD5C /* VGListManager.m */; };
 		F440658B1C4DE09D0041CD5C /* VGBaseList.h in Headers */ = {isa = PBXBuildFile; fileRef = F44065891C4DE09D0041CD5C /* VGBaseList.h */; };
@@ -83,8 +85,16 @@
 /* Begin PBXFileReference section */
 		5076574710F866F82C50EE5B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3208C6DEF9E24B1DF948FC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		F416582D1C50B16D00A35CB7 /* VGTaskDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskDownload.h; sourceTree = "<group>"; };
-		F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskDownload.m; sourceTree = "<group>"; };
+		6E28DA111C6F60D400355796 /* VGTaskDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskDownload.h; sourceTree = "<group>"; };
+		6E28DA121C6F60D400355796 /* VGTaskDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskDownload.m; sourceTree = "<group>"; };
+		6E28DA131C6F60D400355796 /* VGTaskDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskDownloadManager.h; sourceTree = "<group>"; };
+		6E28DA141C6F60D400355796 /* VGTaskDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskDownloadManager.m; sourceTree = "<group>"; };
+		6E28DA181C6F60D400355796 /* VGTaskUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskUpload.h; sourceTree = "<group>"; };
+		6E28DA191C6F60D400355796 /* VGTaskUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskUpload.m; sourceTree = "<group>"; };
+		6E28DA1A1C6F60D400355796 /* VGTaskUploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskUploadManager.h; sourceTree = "<group>"; };
+		6E28DA1B1C6F60D400355796 /* VGTaskUploadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskUploadManager.m; sourceTree = "<group>"; };
+		6E28DA261C6F610600355796 /* VGTaskDownloadQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskDownloadQueueManager.h; sourceTree = "<group>"; };
+		6E28DA271C6F610600355796 /* VGTaskDownloadQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskDownloadQueueManager.m; sourceTree = "<group>"; };
 		F431770D1C5762420011637E /* VGDownloadList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGDownloadList.h; sourceTree = "<group>"; };
 		F431770E1C5762420011637E /* VGDownloadList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGDownloadList.m; sourceTree = "<group>"; };
 		F43B4AAA1C61F1E200BCE060 /* VGNetworkFrameworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGNetworkFrameworkTools.h; sourceTree = "<group>"; };
@@ -99,17 +109,11 @@
 		F43E3F701C58761D000C7315 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F43E3F721C589AB4000C7315 /* VGReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGReachability.h; sourceTree = "<group>"; };
 		F43E3F731C589AB4000C7315 /* VGReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGReachability.m; sourceTree = "<group>"; };
-		F440656D1C4DC6160041CD5C /* VGTaskUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskUpload.h; sourceTree = "<group>"; };
-		F440656E1C4DC6160041CD5C /* VGTaskUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskUpload.m; sourceTree = "<group>"; };
 		F44065711C4DD42C0041CD5C /* VGTaskExecutingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskExecutingInfo.h; sourceTree = "<group>"; };
 		F44065721C4DD42C0041CD5C /* VGTaskExecutingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskExecutingInfo.m; sourceTree = "<group>"; };
 		F44065751C4DD7D50041CD5C /* VGUrlSourceValidCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGUrlSourceValidCheck.h; sourceTree = "<group>"; };
 		F44065761C4DD7D50041CD5C /* VGUrlSourceValidCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGUrlSourceValidCheck.m; sourceTree = "<group>"; };
-		F44065791C4DD89C0041CD5C /* VGTaskDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskDownloadManager.h; sourceTree = "<group>"; };
-		F440657A1C4DD89C0041CD5C /* VGTaskDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskDownloadManager.m; sourceTree = "<group>"; };
 		F440657D1C4DD8F00041CD5C /* VGEnumTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGEnumTask.h; sourceTree = "<group>"; };
-		F440657F1C4DDCC50041CD5C /* VGTaskUploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGTaskUploadManager.h; sourceTree = "<group>"; };
-		F44065801C4DDCC50041CD5C /* VGTaskUploadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGTaskUploadManager.m; sourceTree = "<group>"; };
 		F44065851C4DE0080041CD5C /* VGListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGListManager.h; sourceTree = "<group>"; };
 		F44065861C4DE0080041CD5C /* VGListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGListManager.m; sourceTree = "<group>"; };
 		F44065891C4DE09D0041CD5C /* VGBaseList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGBaseList.h; sourceTree = "<group>"; };
@@ -179,6 +183,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6E28DA101C6F60D400355796 /* TaskDownload */ = {
+			isa = PBXGroup;
+			children = (
+				6E28DA111C6F60D400355796 /* VGTaskDownload.h */,
+				6E28DA121C6F60D400355796 /* VGTaskDownload.m */,
+				6E28DA131C6F60D400355796 /* VGTaskDownloadManager.h */,
+				6E28DA141C6F60D400355796 /* VGTaskDownloadManager.m */,
+				6E28DA261C6F610600355796 /* VGTaskDownloadQueueManager.h */,
+				6E28DA271C6F610600355796 /* VGTaskDownloadQueueManager.m */,
+			);
+			path = TaskDownload;
+			sourceTree = "<group>";
+		};
+		6E28DA151C6F60D400355796 /* TaskUpload */ = {
+			isa = PBXGroup;
+			children = (
+				6E28DA181C6F60D400355796 /* VGTaskUpload.h */,
+				6E28DA191C6F60D400355796 /* VGTaskUpload.m */,
+				6E28DA1A1C6F60D400355796 /* VGTaskUploadManager.h */,
+				6E28DA1B1C6F60D400355796 /* VGTaskUploadManager.m */,
+			);
+			path = TaskUpload;
+			sourceTree = "<group>";
+		};
 		85A243D5B9F6DFEFAA2375BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,16 +241,10 @@
 		F440656C1C4DC6160041CD5C /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				F440656D1C4DC6160041CD5C /* VGTaskUpload.h */,
-				F440656E1C4DC6160041CD5C /* VGTaskUpload.m */,
+				6E28DA101C6F60D400355796 /* TaskDownload */,
+				6E28DA151C6F60D400355796 /* TaskUpload */,
 				F44065711C4DD42C0041CD5C /* VGTaskExecutingInfo.h */,
 				F44065721C4DD42C0041CD5C /* VGTaskExecutingInfo.m */,
-				F44065791C4DD89C0041CD5C /* VGTaskDownloadManager.h */,
-				F440657A1C4DD89C0041CD5C /* VGTaskDownloadManager.m */,
-				F440657F1C4DDCC50041CD5C /* VGTaskUploadManager.h */,
-				F44065801C4DDCC50041CD5C /* VGTaskUploadManager.m */,
-				F416582D1C50B16D00A35CB7 /* VGTaskDownload.h */,
-				F416582E1C50B16D00A35CB7 /* VGTaskDownload.m */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -403,6 +425,7 @@
 				F43B4AC31C620AC000BCE060 /* Files+CoreDataProperties.h in Headers */,
 				F43B4AC51C620AC000BCE060 /* TaskQueue+CoreDataProperties.h in Headers */,
 				F43B4AC71C620AC000BCE060 /* Task+CoreDataProperties.h in Headers */,
+				6E28DA281C6F610600355796 /* VGTaskDownloadQueueManager.h in Headers */,
 				F45DDB941C56190600B17BC6 /* Task.h in Headers */,
 				F45DDB901C56190600B17BC6 /* TaskQueue.h in Headers */,
 				F431770F1C5762420011637E /* VGDownloadList.h in Headers */,
@@ -412,24 +435,24 @@
 				F440657E1C4DD8F00041CD5C /* VGEnumTask.h in Headers */,
 				F43E3F741C589AB4000C7315 /* VGReachability.h in Headers */,
 				F4EC1CA01C4CEB140027C7A3 /* VGNetworkStatus.h in Headers */,
+				6E28DA241C6F60D400355796 /* VGTaskUploadManager.h in Headers */,
 				F44065931C4E10650041CD5C /* VGEnumList.h in Headers */,
 				F43B4AAF1C61F4C700BCE060 /* VGNetworkFrameworkMacro.h in Headers */,
 				F4EC1CA31C4CEC4F0027C7A3 /* VGEnumFile.h in Headers */,
 				F4EC1C9B1C4CEABC0027C7A3 /* VGBaseFileInfo.h in Headers */,
+				6E28DA1C1C6F60D400355796 /* VGTaskDownload.h in Headers */,
 				F4EC1CAA1C4CEF670027C7A3 /* VGFileOverduleCheck.h in Headers */,
-				F416582F1C50B16D00A35CB7 /* VGTaskDownload.h in Headers */,
-				F440657B1C4DD89C0041CD5C /* VGTaskDownloadManager.h in Headers */,
 				F44065771C4DD7D50041CD5C /* VGUrlSourceValidCheck.h in Headers */,
 				F48C470F1C48F1C400EBD2A1 /* VGEnumAll.h in Headers */,
+				6E28DA1E1C6F60D400355796 /* VGTaskDownloadManager.h in Headers */,
 				F4EC1CA61C4CEDE70027C7A3 /* VGImageFileInfo.h in Headers */,
 				F44065901C4DE5800041CD5C /* VGPathManager.h in Headers */,
 				F45DDB8C1C56190600B17BC6 /* Files.h in Headers */,
 				F4EC1C911C4CEA370027C7A3 /* VGNetworkFramework.h in Headers */,
 				F440658B1C4DE09D0041CD5C /* VGBaseList.h in Headers */,
-				F440656F1C4DC6160041CD5C /* VGTaskUpload.h in Headers */,
-				F44065811C4DDCC50041CD5C /* VGTaskUploadManager.h in Headers */,
 				F43B4AAC1C61F1E200BCE060 /* VGNetworkFrameworkTools.h in Headers */,
 				F4EC1C921C4CEA370027C7A3 /* VGNetworkFramework.pch in Headers */,
+				6E28DA221C6F60D400355796 /* VGTaskUpload.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,25 +594,26 @@
 				F43B4AC81C620AC000BCE060 /* Task+CoreDataProperties.m in Sources */,
 				F4EC1CAB1C4CEF670027C7A3 /* VGFileOverduleCheck.m in Sources */,
 				F43B4AC41C620AC000BCE060 /* Files+CoreDataProperties.m in Sources */,
-				F44065701C4DC6160041CD5C /* VGTaskUpload.m in Sources */,
 				F43B4AC61C620AC000BCE060 /* TaskQueue+CoreDataProperties.m in Sources */,
+				6E28DA231C6F60D400355796 /* VGTaskUpload.m in Sources */,
 				F45DDB7C1C56144400B17BC6 /* VGNetWorkModel.xcdatamodeld in Sources */,
 				F45DDB951C56190600B17BC6 /* Task.m in Sources */,
-				F440657C1C4DD89C0041CD5C /* VGTaskDownloadManager.m in Sources */,
-				F41658301C50B16D00A35CB7 /* VGTaskDownload.m in Sources */,
 				F43177101C5762420011637E /* VGDownloadList.m in Sources */,
 				F45DDB911C56190600B17BC6 /* TaskQueue.m in Sources */,
 				F45DDB8D1C56190600B17BC6 /* Files.m in Sources */,
+				6E28DA1D1C6F60D400355796 /* VGTaskDownload.m in Sources */,
 				F45DDB781C56118C00B17BC6 /* VGCGCoreDataHelper.m in Sources */,
+				6E28DA1F1C6F60D400355796 /* VGTaskDownloadManager.m in Sources */,
 				F4EC1C9C1C4CEABC0027C7A3 /* VGBaseFileInfo.m in Sources */,
 				F4EC1CA11C4CEB140027C7A3 /* VGNetworkStatus.m in Sources */,
 				F43E3F751C589AB4000C7315 /* VGReachability.m in Sources */,
 				F43B4AAD1C61F1E200BCE060 /* VGNetworkFrameworkTools.m in Sources */,
 				F44065911C4DE5800041CD5C /* VGPathManager.m in Sources */,
-				F44065821C4DDCC50041CD5C /* VGTaskUploadManager.m in Sources */,
 				F440658C1C4DE09D0041CD5C /* VGBaseList.m in Sources */,
+				6E28DA291C6F610600355796 /* VGTaskDownloadQueueManager.m in Sources */,
 				F44065781C4DD7D50041CD5C /* VGUrlSourceValidCheck.m in Sources */,
 				F4EC1CA71C4CEDE70027C7A3 /* VGImageFileInfo.m in Sources */,
+				6E28DA251C6F60D400355796 /* VGTaskUploadManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,12 @@
 #import "VGTaskDownloadManager.h"
 #import "VGCGCoreDataHelper.h"
 
+@interface VGTaskDownloadManager()
+
+
+
+@end
+
 @implementation VGTaskDownloadManager
 
 #pragma mark - create

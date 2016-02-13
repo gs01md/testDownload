@@ -28,6 +28,7 @@
 
 
 @interface VGTaskDownloadManager : NSObject<protocol_downloadTask>
+
 /**
  *  所有列表
  */
