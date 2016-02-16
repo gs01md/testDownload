@@ -22,15 +22,24 @@
  *  @param strUrl         任务url
  *  @param resumeData     任务状态数据
  */
-- (void) saveTaskWithUrl:(NSString *)strUrl resume:(NSData *)resumeData {
+- (Task *) saveTaskAndGetTaskWithUrl:(NSString *)strUrl resume:(NSData *)resumeData {
     
     Task * task = [self getTaskWithUrl:strUrl];
     
-    if (nil != task) {
+    if ( nil != task ) {
         
-        [task saveDataWithResume: resumeData];
+        task.delegate = self;
+        task.m_queueName = self.name;
+        
+        if (nil != resumeData) {
+            
+            [task saveDataWithResume: resumeData];
+        }        
     }
     
+    [self startTaskManager];
+    
+    return task;
 }
 
 /**
@@ -43,6 +52,7 @@
     Task * task = [self getTaskWithUrl:strUrl];
     
     if (nil != task) {
+        
         [[VGCGCoreDataHelper sharedManagerCenter].context deleteObject:task];
         
         //从内存保存到数据库
@@ -75,6 +85,95 @@
     return data;
 }
 
+#pragma mark - 任务启动管理
+
+/**
+ *  处理该队列中的所有的任务的启动逻辑
+ *  根据顺序，依次启动任务中的正在等待的任务
+ */
+- (void) startTaskManager {
+    
+    if (false == [self hasDownloadingTask]) {
+        
+        for (Task *temp in self.m_arrayTask) {
+            
+            if (TASK_STATUS_QUEUE == temp.m_taskStatus) {
+                
+                [temp start];
+                break;
+            }
+        }
+    }
+
+}
+
+- (Boolean) hasDownloadingTask {
+    
+    Boolean hasDownloading = false;
+    
+    for (Task *temp in self.m_arrayTask) {
+        
+        if (TASK_STATUS_DOWNLOADING == temp.m_taskStatus) {
+            hasDownloading = true;
+            break;
+        }
+    }
+    
+    return hasDownloading;
+}
+
+#pragma mark - Task 代理
+/**
+ *  通常用于任务结束时，启动新的任务
+ */
+- (void) taskStatus:(TASK_STATUS)status taskId:(NSString *)taskId {
+    
+    if (TASK_STATUS_FINISHED == status) {
+        
+        [self deleteTaskFromArray:taskId];
+        
+        [self deleteTaskFromCoreData:taskId];
+        
+    }
+    
+    [self startTaskManager];
+}
+
+/**
+ *  下载完成后，从数组中删除任务
+ *
+ *  @param taskId ：任务id
+ */
+- (void) deleteTaskFromArray:(NSString *)taskId {
+    
+    Task *task = [self taskFindWithId:taskId];
+    
+    if (nil != task &&
+        nil != self.m_arrayTask) {
+        
+        [self.m_arrayTask removeObject:task];
+    }
+}
+
+/**
+ *  下载完成后，从数据库中删除任务
+ *
+ *  @param taskId ：任务id
+ */
+- (void) deleteTaskFromCoreData:(NSString *)taskId {
+    
+    Task *task = [self taskFindWithId:taskId];
+    
+    if (nil != task ) {
+        
+        [[VGCGCoreDataHelper sharedManagerCenter].context deleteObject:task];
+        
+        //从内存保存到数据库
+        [[VGCGCoreDataHelper sharedManagerCenter] saveContext];
+    }
+}
+
+
 #pragma mark - function
 /**
  *  从数据库获取 队列名称列表
@@ -90,7 +189,9 @@
     
     [request setPredicate:filter];
     
-    self.m_arrayTask = [[VGCGCoreDataHelper sharedManagerCenter].context executeFetchRequest:request error:nil];
+    NSArray *array = [[VGCGCoreDataHelper sharedManagerCenter].context executeFetchRequest:request error:nil];
+    
+    [self compareAddSyncTaskArray:array];
     
     return self.m_arrayTask;
     
@@ -162,12 +263,36 @@
         
         if ([[temp.url stringByTrimmingCharactersInSet:
               [NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[url stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]) {
+            
             isExist = true;
             break;
         }
     }
     
     return isExist;
+}
+
+/**
+ *  根据任务的objectid ，获取任务
+ *
+ *  @param taskId ：队列id
+ *
+ *  @return ：
+ */
+- (Task *) taskFindWithId:(NSString *) taskId {
+    
+    Task * task = nil;
+    
+    for (Task *temp in self.m_arrayTask) {
+        
+        if ([[temp objectID].description isEqualToString:taskId]) {
+            
+            task = temp;
+            break;
+        }
+    }
+    
+    return task;
 }
 
 
@@ -196,6 +321,69 @@
         
     }
     
+}
+
+
+/**
+ *  管理：启动队列中的一个任务
+ *
+ *  @param task ：任务信息
+ */
+- (void) startOneTask:(Task *)task {
+    
+    if (nil != task) {
+        [task start];
+    }
+    
+}
+
+#pragma mark - 数组比较
+/**
+ *  刚获取的队列和已有的队列进行比较，并同步信息
+ *  如果m_arrayTask中没有，则添加并加载任务
+ *
+ *  @param array ：刚获取的队列
+ */
+- (void) compareAddSyncTaskArray:(NSArray *)array {
+    
+    if (nil == self.m_arrayTask) {
+        
+        self.m_arrayTask = [NSMutableArray new];
+    }
+    
+    for (Task *temp in array) {
+        
+        Task * task = [self findTaskInArray:temp];
+        
+        if (nil == task) {
+            task.m_taskStatus = TASK_STATUS_QUEUE;
+            [self.m_arrayTask addObject:temp];
+            
+        }else {
+            
+        }
+    }
+}
+
+/**
+ *  在已有的Array里面，查找指定的队列
+ *
+ *  @param task ：刚从CoreData里获取的任务
+ */
+- (Task *) findTaskInArray:(Task *)task {
+    
+    Task * taskFind = nil;
+    
+    for (Task *temp in self.m_arrayTask) {
+        
+        if ([task.url isEqualToString:temp.url]) {
+            
+            taskFind = temp;
+            break;
+        }
+    }
+    
+    return taskFind;
 }
 
 

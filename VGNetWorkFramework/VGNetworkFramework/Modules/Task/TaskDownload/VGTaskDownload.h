@@ -10,7 +10,6 @@
 
 #import "VGBaseFileInfo.h"
 #import "VGNetworkStatus.h"
-#import "VGListManager.h"
 #import "VGTaskExecutingInfo.h"
 #import <Foundation/Foundation.h>
 
@@ -18,6 +17,7 @@
  *  任务代理
  */
 @protocol protocol_downloadTask <NSObject>
+
 @optional
 /**
  *  任务下载中抛出信息
@@ -40,19 +40,22 @@
  */
 - (void) taskDidFinishedSuccessed:(NSString *)strQueue url:(NSString *)strUrl filePath:(NSString*)strFilePath;
 
+/**
+ *  设置任务状态
+ *
+ *  @param status ：任务状态
+ */
+- (void) taskStatus:(TASK_STATUS)status;
+
 @end
 
 @interface VGTaskDownload : NSObject<Protocol_VGNetworkStatus>
 
-/**
- *  任务等列表管理
- */
-@property(nonatomic, strong)VGListManager *m_listManager;
 
 /**
  *  下载任务类型：上传 或 下载，暂时只有下载
  */
-@property(nonatomic , assign , readonly) VGTASK_TYPE m_taskType;
+@property(nonatomic , assign, readonly) VGTASK_TYPE m_taskType;
 
 /**
  *  所属队列名称
@@ -62,7 +65,12 @@
 /**
  *  下载文件网络路径
  */
-@property(nonatomic , strong , readonly) NSString *m_strSourceUrl;
+@property(nonatomic , strong, readonly) NSString *m_strSourceUrl;
+
+/**
+ *  任务在数据库中id
+ */
+@property(nonatomic , strong) NSString * m_taskId;
 
 /**
  *  下载文件信息
@@ -79,10 +87,6 @@
  */
 @property(nonatomic , assign) VGFILEPOSITIONTYPE m_saveType;
 
-/**
- *  下载状态
- */
-@property(nonatomic , assign) TASK_STATUS m_taskStatus;
 
 /**
  *  下载暂停数据
@@ -110,7 +114,7 @@
  *
  *  @param strUrl 网络资源路径
  */
-- (instancetype) initTaskAndStartwithUrl:(NSString*)strUrl queue:(NSString *)strQueue;
+- (instancetype) initTaskAndStartwithUrl:(NSString*)strUrl queue:(NSString *)strQueue taskId:(NSString*)taskId;
 
 /**
  *  暂停任务

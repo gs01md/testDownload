@@ -21,94 +21,119 @@
 - (instancetype) init{
     
     if (self = [super init]) {
+        
         [self getTaskQueueArrayFromCoreData];
     } 
     return self;
 }
 
-#pragma mark - function
+#pragma mark - interface
+
 /**
- *  从数据库获取 队列名称列表
+ *  添加某个队列的某个任务
+ *
+ *  @param strQueue   队列名称
+ *  @param strUrl     任务url
  */
-- (NSArray<TaskQueue*> *) getTaskQueueArrayFromCoreData {
+- (Task *) addTaskWithQueue:(NSString *)strQueue url:(NSString *)strUrl {
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"TaskQueue"];
-    self.m_arrayTaskQueue = [[VGCGCoreDataHelper sharedManagerCenter].context executeFetchRequest:request error:nil];
+    Task *task = nil;
     
-    /**
-     *  加载每个列表的任务
-     */
-    for (TaskQueue *temp in self.m_arrayTaskQueue) {
-        [temp getTaskArrayFromCoreData];
+    //如果数据库不存在 Task Queue，则保存到 数据库
+    [self saveQueueToCoreDataWithName:strQueue];
+    
+    //获取 Task Queue
+    TaskQueue *queue = [self getTaskQueue:strQueue];
+    
+    if (nil != queue) {
+        
+        task = [queue saveTaskAndGetTaskWithUrl:strUrl resume:nil];
     }
     
-    return self.m_arrayTaskQueue;
+    return task;
     
 }
 
 /**
- *  数据库是否存在某个下载队列
+ *  根据“队列名”和“url” 重启一个下载任务
  *
- *  @param queueName ：队列名称
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
  *
- *  @return ：YES 存在；NO 不存在
+ *  @return 下载任务对象
  */
-- (Boolean) isExistTaskQueue:(NSString *) queueName{
+- (VGTaskDownload *) restartDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
-    Boolean isExist = false;
+    //获取 下载任务
+    VGTaskDownload *taskDownload = [self findDownloadTaskWithUrl:strUrl queue:strQueue];
     
-    for (TaskQueue *temp in self.m_arrayTaskQueue) {
-        
-        if ([[temp.name stringByTrimmingCharactersInSet:
-             [NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[queueName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]) {
-            isExist = true;
-            break;
-        }
+    if (nil != taskDownload) {
+        [taskDownload taskRestart];
     }
     
-    return isExist;
-}
-
-/**
- *  数据库是否存在某个下载队列
- *
- *  @param queueName ：队列名称
- *
- */
-- (TaskQueue *) getTaskQueue:(NSString *) queueName{
+    return taskDownload;
     
-    TaskQueue *taskQueue = nil;
-    
-    for (TaskQueue *temp in self.m_arrayTaskQueue) {
-        
-        if ([[temp.name stringByTrimmingCharactersInSet:
-              [NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[queueName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]) {
-            taskQueue = temp;
-            break;
-        }
-    }
-    
-    return taskQueue;
 }
 
 
 /**
- *  如果不存在 任务队列，则创建
+ *  根据“队列名”和“url” 暂停一个下载任务
  *
- *  @param name ：队列名称
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ *  @return 下载任务对象
  */
-- (NSArray<TaskQueue*> *) saveDataWithName:(NSString *)name {
+- (VGTaskDownload *) pauseDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
-    if (![self isExistTaskQueue:name]) {
-        TaskQueue *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"TaskQueue" inManagedObjectContext:[VGCGCoreDataHelper sharedManagerCenter].context];
-        newItem.name = name;
-        
-        //从内存保存到数据库
-        [[VGCGCoreDataHelper sharedManagerCenter] saveContext];
+    //获取 下载任务
+    VGTaskDownload *taskDownload = [self findDownloadTaskWithUrl:strUrl queue:strQueue];
+    
+    if (nil != taskDownload) {
+        [taskDownload taskPause];
     }
     
-    return [self getTaskQueueArrayFromCoreData];
+    return taskDownload;
+
+}
+
+
+/**
+ *  根据“队列名”和“url” 删除一个下载任务
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ */
+- (void) deleteDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
+    //暂停任务
+    [self pauseDownloadTaskWithUrl:strUrl queue:strQueue];
+    
+    //删除临时文件
+    
+    //删除数据库任务
+    
+    //删除队列中的该任务
+    
+}
+
+/**
+ *  根据“队列名”和“url” 查询一个下载任务
+ *
+ *  @param strUrl   下载链接
+ *  @param strQueue 下载队列名称--为自定义队列名称
+ *
+ */
+- (VGTaskDownload *) findDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
+    
+    //获取 Task Queue
+    TaskQueue *queue = [self getTaskQueue:strQueue];
+    
+    //获取 下载任务
+    Task *task = [queue saveTaskAndGetTaskWithUrl:strQueue resume:nil];
+    
+    return task.m_taskDownload;
 }
 
 /**
@@ -142,13 +167,13 @@
  */
 - (void) saveResumeDataWithQueue:(NSString *)strQueue url:(NSString *)strUrl resume:(NSData *)resumeData {
     
-    [self saveDataWithName:strQueue];
+    [self saveQueueToCoreDataWithName:strQueue];
     
     TaskQueue * taskQueue = [self getTaskQueue:strQueue];
     
     if (nil != taskQueue) {
         
-        [taskQueue saveTaskWithUrl:strUrl resume:resumeData];
+        [taskQueue saveTaskAndGetTaskWithUrl:strUrl resume:resumeData];
     }
 }
 
@@ -166,8 +191,141 @@
         [taskQueue removeTaskWithUrl:strUrl];
         
     }
-
+    
 }
 
+
+#pragma mark - function
+/**
+ *  从数据库获取 队列名称列表
+ *  1. 当已有的m_arrayTaskQueue为空时，直接赋值，并获取每个队列的任务
+ *  2. 当已有的m_arrayTaskQueue不为空时，则刚获取的数据，需要比对后，再进行赋值。
+ */
+- (NSArray<TaskQueue*> *) getTaskQueueArrayFromCoreData {
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"TaskQueue"];
+    
+    VGCGCoreDataHelper *coredata = [VGCGCoreDataHelper sharedManagerCenter];
+    
+    if (nil != coredata &&
+        nil != coredata.context) {
+        
+        NSArray *array = [coredata.context executeFetchRequest:request error:nil];
+        
+        [self compareAndSyncQueueArray:array];
+    }
+    
+    
+    /**
+     *  加载每个列表的任务
+     */
+    for (TaskQueue *temp in self.m_arrayTaskQueue) {
+        
+        [temp getTaskArrayFromCoreData];
+    }
+    
+    return self.m_arrayTaskQueue;
+    
+}
+
+/**
+ *  数据库是否存在某个下载队列
+ *
+ *  @param queueName ：队列名称
+ *
+ *  @return ：YES 存在；NO 不存在
+ */
+- (Boolean) isExistTaskQueue:(NSString *) queueName{
+    
+    Boolean isExist = false;
+    
+    [self getTaskQueueArrayFromCoreData];
+    
+    for (TaskQueue *temp in self.m_arrayTaskQueue) {
+        
+        if ([[temp.name stringByTrimmingCharactersInSet:
+             [NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[queueName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]) {
+            isExist = true;
+            break;
+        }
+    }
+    
+    return isExist;
+}
+
+/**
+ *  数据库是否存在某个下载队列
+ *
+ *  @param queueName ：队列名称
+ *
+ */
+- (TaskQueue *) getTaskQueue:(NSString *) queueName{
+    
+    TaskQueue *taskQueue = nil;
+    
+    for (TaskQueue *temp in self.m_arrayTaskQueue) {
+        
+        if ([[temp.name stringByTrimmingCharactersInSet:
+              [NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[queueName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]) {
+            
+            taskQueue = temp;
+            break;
+        }
+    }
+    
+    return taskQueue;
+}
+
+
+/**
+ *  如果不存在 任务队列，则创建
+ *
+ *  @param name ：队列名称
+ */
+- (NSArray<TaskQueue*> *) saveQueueToCoreDataWithName:(NSString *)name {
+    
+    if (![self isExistTaskQueue:name]) {
+        TaskQueue *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"TaskQueue" inManagedObjectContext:[VGCGCoreDataHelper sharedManagerCenter].context];
+        newItem.name = name;
+        
+        //从内存保存到数据库
+        [[VGCGCoreDataHelper sharedManagerCenter] saveContext];
+    }
+    
+    return [self getTaskQueueArrayFromCoreData];
+    
+}
+
+
+#pragma mark - 数组比较
+/**
+ *  刚获取的队列和已有的队列进行比较
+ *  如果m_arrayTaskQueue中没有，则添加并加载任务
+ *
+ *  @param array ：刚获取的队列
+ */
+- (void) compareAndSyncQueueArray:(NSArray *)array {
+    
+    if (nil == self.m_arrayTaskQueue) {
+        
+        self.m_arrayTaskQueue = [NSMutableArray new];
+    }
+    
+    for (TaskQueue *temp in array) {
+        
+        //在现有的数组里查找是否已经有某个队列
+        TaskQueue * queue = [self getTaskQueue:temp.name];
+        
+        if (nil == queue) {
+            
+            [self.m_arrayTaskQueue addObject:temp];
+            [queue getTaskArrayFromCoreData];
+            
+        }else {
+            
+            [queue getTaskArrayFromCoreData];
+        }
+    }
+}
 
 @end

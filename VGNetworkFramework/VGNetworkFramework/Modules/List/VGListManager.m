@@ -54,6 +54,8 @@ static NSString *strClass = @"VGListManager";
             }
             
             self.m_downloadList = [[VGDownloadList alloc] init];
+            self.m_fileList     = [[VGFileList alloc] init];
+
         }
         
         return self;

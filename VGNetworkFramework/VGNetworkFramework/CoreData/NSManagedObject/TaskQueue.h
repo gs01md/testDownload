@@ -15,12 +15,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TaskQueue : NSManagedObject
+@interface TaskQueue : NSManagedObject<protocol_task>
 
 /**
  *  该队列中的任务
  */
-@property (nonatomic,strong)NSArray<Task*> *m_arrayTask;
+@property (nonatomic,strong)NSMutableArray<Task*> *m_arrayTask;
 
 /**
  *  同步任务
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param strUrl     任务url
  *  @param resumeData     任务状态数据
  */
-- (void) saveTaskWithUrl:(NSString *)strUrl resume:(NSData *)resumeData;
+- (Task *) saveTaskAndGetTaskWithUrl:(NSString *)strUrl resume:(NSData  * _Nullable)resumeData;
 
 /**
  *  获取某个任务的下载状态，如果有则返回，没有，则返回nil
@@ -56,6 +56,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return ：状态数据
  */
 - (NSData *) getResumeDataWithUrl:(NSString *)strUrl;
+
+/**
+ *  管理：启动队列中的一个任务
+ *
+ *  @param task ：任务信息
+ */
+- (void) startOneTask:(Task *)task;
+
 
 @end
 

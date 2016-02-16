@@ -8,9 +8,8 @@
 #import "VGNetworkStatus.h"
 #import "VGTaskDownload.h"
 #import <AFURLSessionManager.h>
-#import "VGDownloadList.h"
 #import "VGNetworkFrameworkTools.h"
-
+#import "VGListManager.h"
 
 @interface VGTaskDownload () {
     
@@ -27,18 +26,20 @@
  *  根据url，要检测--数据库中是否已经有该数据
  *  @param strUrl 网络资源路径
  */
-- (instancetype) initTaskAndStartwithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
+- (instancetype) initTaskAndStartwithUrl:(NSString *)strUrl queue:(NSString *)strQueue taskId:(NSString*)taskId{
     
     if (self = [super init]) {
         
-        self.m_taskStatus = TASK_STATUS_CREATED;
+        [self changeStatus:TASK_STATUS_DOWNLOADING];
         _m_strSourceUrl = strUrl;
+        _m_taskId = taskId;
         
         /**
          *  队列名可以为空，因为有个默认队列
          */
         _m_queueName = [VGNetworkFrameworkTools stringTrim:strQueue];
         if (nil == _m_queueName) {
+            
             _m_queueName = DEFUALT_QUEUE;
         }
         
@@ -79,7 +80,7 @@
         
         [[VGListManager sharedManagerCenter].m_downloadList saveResumeDataWithQueue:weakSelf.m_queueName url:weakSelf.m_strSourceUrl resume:weakSelf.m_resumeData];
         
-        self.m_taskStatus = TASK_STATUS_PAUSING;
+        [self changeStatus:TASK_STATUS_PAUSING];
     }];
 }
 
@@ -88,12 +89,13 @@
  */
 - (void) taskRestart {
     
-    self.m_taskStatus = TASK_STATUS_DOWNLOADING;
+    [self changeStatus:TASK_STATUS_DOWNLOADING];
     
     /**
      *  如果“继续数据”为空，则要使用重新开始接口进行下载
      */
     if (nil == self.m_resumeData) {
+        
         [self taskStart];
         return;
     }
@@ -103,27 +105,31 @@
     
     self.m_sessionDownloadTask = [manager downloadTaskWithResumeData:self.m_resumeData progress:^(NSProgress * _Nonnull downloadProgress) {
         
-        NSLog(@"%@",downloadProgress);
+        NSLog(@"task:%@; progress:%@",self.m_taskId,downloadProgress);
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        
         NSLog(@"%@", documentsDirectoryURL);
+        
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
         
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         
         if (nil != error) {
             NSLog(@"出错：response:%@;error:%@",response,error);
-            self.m_taskStatus = TASK_STATUS_ERROR;
+            
+            [self changeStatus:TASK_STATUS_ERROR];
             
             [self faildDownload];
             
         } else {
             NSLog(@"成功：response:%@;error:%@",response,error);
-            self.m_taskStatus = TASK_STATUS_FINISHED;
             
-            [self successDownload];
+            [self changeStatus:TASK_STATUS_FINISHED];
+            
+            [self successDownload:response.suggestedFilename];
         }
         
     }];
@@ -139,11 +145,13 @@
  */
 - (void) taskStart {
     
-    self.m_taskStatus = TASK_STATUS_DOWNLOADING;
+    [self changeStatus:TASK_STATUS_DOWNLOADING];
+    
     /**
      *  如果“继续数据”不为空，则要使用继续下载接口进行下载
      */
     if (nil != self.m_resumeData) {
+        
         [self taskRestart];
         return;
     }
@@ -163,28 +171,33 @@
      */
     self.m_sessionDownloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         
-        NSLog(@"%@",downloadProgress);
+        NSLog(@"task:%@; progress:%@",self.m_taskId,downloadProgress);
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-        NSLog(@"%@", documentsDirectoryURL);
+        
+        NSLog(@"%@", documentsDirectoryURL.description);
+        
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
         
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         
         if (nil != error) {
+            
             NSLog(@"出错：response:%@;error:%@",response,error);
-            self.m_taskStatus = TASK_STATUS_ERROR;
+            
+            [self changeStatus:TASK_STATUS_ERROR];
             
             [self faildDownload];
             
         } else {
+            
             NSLog(@"成功：response:%@;error:%@",response,error);
 
-            self.m_taskStatus = TASK_STATUS_FINISHED;
+            [self changeStatus:TASK_STATUS_FINISHED];
             
-            [self successDownload];
+            [self successDownload:response.suggestedFilename];
             
         }
         
@@ -209,8 +222,18 @@
  *  1. 删除数据库的记录
  *  2. 保存文件列表到数据库，并同步到内存文件列表中
  */
-- (void) successDownload {
-    [self.m_listManager.m_downloadList removeTaskWithQueue:self.m_queueName url:self.m_strSourceUrl];
+- (void) successDownload:(NSString *)name {
+    
+    /**
+     *  处理任务队列
+     */
+    [[VGListManager sharedManagerCenter].m_downloadList removeTaskWithQueue:self.m_queueName url:self.m_strSourceUrl];
+    
+    /**
+     *  处理文件列表
+     */
+    [[VGListManager sharedManagerCenter].m_fileList insertFilePathWithUrl:self.m_strSourceUrl name:name];
+    
     
     if([self.delegate respondsToSelector:@selector(taskDidFinishedSuccessed:url:filePath:)]){
         
@@ -236,6 +259,20 @@
  */
 - (void) networkStatusWithNetworkType:(VGNETWORKTYPE)currentNetworkType {
     
+}
+
+#pragma mark - 设置任务状态
+/**
+ *  改变任务的状态
+ *
+ *  @param status
+ */
+- (void) changeStatus:(TASK_STATUS) status {
+    
+    if([ self.delegate respondsToSelector:@selector(taskStatus:)]){
+        
+        [self.delegate taskStatus:status];
+    }
 }
 
 #pragma mark - test

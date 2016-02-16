@@ -3,6 +3,7 @@
 //  VGNetworkFramework
 //
 //  所有下载任务的管理类
+//  下载任务是通过TaskQueue和Task来实现的，本类只是负责保存队列和任务数据，由TaskQueue来负责管理任务下载及下载顺序。
 //
 //  实现功能:
 //
@@ -25,7 +26,7 @@
 #import <Foundation/Foundation.h>
 #import "VGListManager.h"
 #import "VGTaskDownload.h"
-
+#import "VGTaskResponse.h"
 
 @interface VGTaskDownloadManager : NSObject<protocol_downloadTask>
 
@@ -33,12 +34,6 @@
  *  所有列表
  */
 @property (nonatomic, strong) VGListManager *m_listManager;
-
-
-/**
- *  所有任务
- */
-@property (nonatomic, strong) NSMutableArray<VGTaskDownload *> * m_arrayTaskDownload;
 
 
 /**
@@ -56,7 +51,7 @@
  *
  *  @return 下载任务对象
  */
-- (VGTaskDownload *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
+- (VGTaskResponse *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
 
 /**
  *  根据“队列名”和“url” 重启一个下载任务

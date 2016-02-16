@@ -1,8 +1,8 @@
 //
-//  Files.h
-//  VGNetworkFramework
+//  VGDownloadFilePath.h
+//  VGNetWorkFramework
 //
-//  Created by Simon on 16/1/25.
+//  Created by Simon on 16/2/15.
 //  Copyright © 2016年 Simon. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Files : NSManagedObject
+@interface VGDownloadFilePath : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -19,4 +19,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Files+CoreDataProperties.h"
+#import "VGDownloadFilePath+CoreDataProperties.h"

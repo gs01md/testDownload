@@ -60,7 +60,6 @@ static NSString *strClass = @"VGTaskDownloadManager";
             }
             
             self.m_listManager = [VGListManager sharedManagerCenter];
-            self.m_arrayTaskDownload = [[NSMutableArray alloc] init];
         }
         
         return self;
@@ -98,14 +97,24 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *
  *  @return 下载任务对象
  */
-- (VGTaskDownload *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
+- (VGTaskResponse *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
-    VGTaskDownload *task = [[VGTaskDownload alloc] initTaskAndStartwithUrl:strUrl queue:(NSString *)strQueue];
+    VGTaskResponse * taskResponse = [VGTaskResponse new];
     
-    task.delegate = self;
-    [self addToArrayTask:task];
+    NSString *filePath = [self.m_listManager.m_fileList getFilePathWithUrl:strUrl];
+    
+    //是否已经下载过
+    if (nil != filePath) {//已经下载过
+        
+        taskResponse.m_filePath = filePath;
+        
+    } else {
+        
+        taskResponse.m_task = [self.m_listManager.m_downloadList addTaskWithQueue:strQueue url:strUrl];
+    }
+    
+    return taskResponse;
 
-    return task;
 }
 
 /**
@@ -118,14 +127,9 @@ static NSString *strClass = @"VGTaskDownloadManager";
  */
 - (VGTaskDownload *) restartDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
-    VGTaskDownload *taskDownload = [self findDownloadTaskWithUrl:strUrl queue:strQueue];
+    VGTaskDownload *taskDownload = [self.m_listManager.m_downloadList restartDownloadTaskWithUrl:strUrl queue:strQueue];
     
-    if (nil != taskDownload) {
-        
-        [taskDownload taskRestart];
-    }
-    
-    return nil;
+    return taskDownload;
 }
 
 /**
@@ -138,14 +142,9 @@ static NSString *strClass = @"VGTaskDownloadManager";
  */
 - (VGTaskDownload *) pauseDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
-    VGTaskDownload *taskDownload = [self findDownloadTaskWithUrl:strUrl queue:strQueue];
+    VGTaskDownload *taskDownload = [self.m_listManager.m_downloadList restartDownloadTaskWithUrl:strUrl queue:strQueue];
     
-    if (nil != taskDownload) {
-        
-        [taskDownload taskPause];
-    }
-    
-    return nil;
+    return taskDownload;
 }
 
 
@@ -158,8 +157,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  */
 - (void) deleteDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
-    //从列表移除
-    [self removeTaskDownloadFromArray:strUrl queue:strQueue];
+    [self.m_listManager.m_downloadList deleteDownloadTaskWithUrl:strUrl queue:strQueue];
     
     //释放资源
     
@@ -174,18 +172,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  */
 - (VGTaskDownload *) findDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
-    VGTaskDownload * taskDownload = nil;
-    
-    for (VGTaskDownload * temp in self.m_arrayTaskDownload) {
-        
-        if ([temp.m_strSourceUrl isEqualToString:strUrl] &&
-            [temp.m_queueName isEqualToString:strQueue]) {
-            
-            taskDownload = temp;
-            
-            break;
-        }
-    }
+    VGTaskDownload * taskDownload = [self.m_listManager.m_downloadList findDownloadTaskWithUrl:strUrl queue:strQueue];
     
     return taskDownload;
 }
@@ -227,16 +214,6 @@ static NSString *strClass = @"VGTaskDownloadManager";
     
     BOOL isExist = FALSE;
     
-    for (VGTaskDownload * temp in self.m_arrayTaskDownload) {
-        
-        if ([temp.m_strSourceUrl isEqualToString:strUrl] &&
-            [temp.m_queueName isEqualToString:strQueue]) {
-            
-            isExist = TRUE;
-            
-            break;
-        }
-    }
     
     return isExist;
 }
@@ -245,6 +222,7 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *  保存更改到数据库
  */
 - (void) saveChangeToCoreData {
+    
     [[VGCGCoreDataHelper sharedManagerCenter] saveContext];
 }
 
@@ -255,33 +233,33 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *
  *  @param task： 任务
  */
-- (void) addToArrayTask:(VGTaskDownload *)task{
-    
-    if (nil != task && nil != self.m_arrayTaskDownload) {
-        
-        [self.m_arrayTaskDownload addObject:task];
-    }
-}
+//- (void) addToArrayTask:(VGTaskDownload *)task{
+//    
+//    if (nil != task && nil != self.m_arrayTaskDownload) {
+//        
+//        [self.m_arrayTaskDownload addObject:task];
+//    }
+//}
 
 /**
  *  把任务从列表移除
  *
  *  @param taskDownload 任务对象
  */
-- (void) removeTaskDownloadFromArray:(NSString *)strUrl queue:(NSString *)strQueue {
-    
-    for (VGTaskDownload * temp in self.m_arrayTaskDownload) {
-        
-        if ([temp.m_strSourceUrl isEqualToString:strUrl] &&
-            [temp.m_queueName isEqualToString:strQueue]) {
-            
-            [self.m_arrayTaskDownload removeObject:temp];
-            
-            break;
-        }
-    }
-    
-}
+//- (void) removeTaskDownloadFromArray:(NSString *)strUrl queue:(NSString *)strQueue {
+//    
+//    for (VGTaskDownload * temp in self.m_arrayTaskDownload) {
+//        
+//        if ([temp.m_strSourceUrl isEqualToString:strUrl] &&
+//            [temp.m_queueName isEqualToString:strQueue]) {
+//            
+//            [self.m_arrayTaskDownload removeObject:temp];
+//            
+//            break;
+//        }
+//    }
+//    
+//}
 
 #pragma mark - VGTaskDownload 代理
 /**
@@ -293,7 +271,6 @@ static NSString *strClass = @"VGTaskDownloadManager";
  */
 -(void)taskDidFinishedSuccessed:(NSString *)strQueue url:(NSString *)strUrl filePath:(NSString *)strFilePath{
     
-    [self removeTaskDownloadFromArray:strUrl queue:strQueue];
 }
 
 #pragma mark - test

@@ -62,15 +62,12 @@ typedef enum {
  *  任务状态
  */
 typedef enum {
-    /**
-     *  已创建，还未请求下载
-     */
-    TASK_STATUS_CREATED = 0,
     
     /**
-     *  与服务器建立连接中...
+     *  在排队中，等待下载
      */
-    TASK_STATUS_LINKING,
+    TASK_STATUS_QUEUE = 0,
+    
     
     /**
      *  下载中...
@@ -78,7 +75,7 @@ typedef enum {
     TASK_STATUS_DOWNLOADING,
     
     /**
-     *  暂停中...
+     *  暂停中...，暂停完了，只是加入队列，并不是立即下载
      */
     TASK_STATUS_PAUSING,
     

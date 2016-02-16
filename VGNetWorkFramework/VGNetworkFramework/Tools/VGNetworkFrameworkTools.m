@@ -40,4 +40,48 @@
     return ret;
 }
 
+/**
+ *  在已知路径下，如果文件夹不存在，则创建新的文件夹
+ *
+ *  @param dirName 新文件夹名称
+ *  @param path    路径
+ *
+ *  @return yes:创建成功，no:创建失败
+ */
++ (BOOL) createDir:(NSString *)dirName path:(NSString *)path {
+    
+    BOOL succ = NO;
+    
+    if (nil != path &&
+        nil != dirName) {
+        
+        NSString *imageDir = [NSString stringWithFormat:path, NSHomeDirectory(), dirName];
+        
+        BOOL isDir = NO;
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        BOOL existed = [fileManager fileExistsAtPath:imageDir isDirectory:&isDir];
+        
+        /**
+         *  给定的字符串是否是一个路径
+         */
+        if (YES == isDir) {
+            
+            /**
+             *  该路径是否已经存在，如果存在，则返回true; 如果不存在，则创建，并返回创建是否成功
+             */
+            if (NO ==  existed ) {
+                
+                succ = [fileManager createDirectoryAtPath:imageDir withIntermediateDirectories:YES attributes:nil error:nil];
+            }else {
+                
+                succ = YES;
+            }
+            
+        }
+    }
+    
+    return succ;
+}
+
 @end

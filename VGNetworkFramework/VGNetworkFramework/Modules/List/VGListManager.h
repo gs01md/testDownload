@@ -10,13 +10,20 @@
 
 #import <Foundation/Foundation.h>
 #import "VGDownloadList.h"
+#import "VGFileList.h"
 
 @interface VGListManager : NSObject
 
 /**
- *  下载信息列表
+ *  下载任务列表
  */
 @property (nonatomic, strong)VGDownloadList *m_downloadList;
+
+
+/**
+ *  已下载文件列表
+ */
+@property (nonatomic, strong)VGFileList *m_fileList;
 
 /**
  *  列表管理中心

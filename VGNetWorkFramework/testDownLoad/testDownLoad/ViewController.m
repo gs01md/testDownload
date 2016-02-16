@@ -11,7 +11,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) VGTaskDownload * m_down;
+@property (nonatomic, strong) VGTaskResponse * m_down;
 @end
 
 @implementation ViewController
@@ -34,11 +34,11 @@
 
 
 - (void) taskPause {
-    [self.m_down taskPause];
+    [self.m_down.m_task pauseTaskDownload];
 }
 
 - (void) taskRestart {
-    [self.m_down taskRestart];
+    [self.m_down.m_task restartTaskDownload];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,11 +8,19 @@
 
 #import "Task.h"
 #import "VGCGCoreDataHelper.h"
-@implementation Task
 
--(void)fetchRequest{
+@interface Task ()<protocol_downloadTask>{
     
 }
+
+@end
+
+@implementation Task
+
+@synthesize m_taskDownload;
+@synthesize m_queueName;
+@synthesize m_taskStatus;
+@synthesize delegate;
 
 
 /**
@@ -29,5 +37,72 @@
     
 }
 
+/**
+ *  启动任务--逻辑
+ */
+- (void) start {
+    
+    if (nil != m_taskDownload) {
+        
+        [self restartTaskDownload];
+        
+    } else {
+        
+        m_taskDownload = [[VGTaskDownload alloc] initTaskAndStartwithUrl:self.url queue:self.m_queueName taskId:[self objectID].description];
+        
+        m_taskDownload.delegate = self;
+    }
+}
+
+
+#pragma mark - function
+
+/**
+ *  继续任务--封装
+ */
+- (void) restartTaskDownload {
+    
+    //如果没有启动，则启动；如果已经启动，则不进行处理
+    if (nil != self.m_taskDownload &&
+        TASK_STATUS_PAUSING == self.m_taskStatus) {
+        
+        [self.m_taskDownload taskRestart];
+    }
+}
+
+/**
+ *  暂停任务--封装
+ */
+- (void) pauseTaskDownload {
+    
+    //如果没有启动，则启动；如果已经启动，则不进行处理
+    if (nil != self.m_taskDownload &&
+        TASK_STATUS_DOWNLOADING == self.m_taskStatus) {
+        
+        [self.m_taskDownload taskPause];
+    }
+}
+
+#pragma mark - 下载代理
+/**
+ *  改变任务状态
+ *
+ *  @param status 任务状态
+ *  @param taskId 任务id，当任务结束时，删除任务时使用
+ */
+- (void) taskStatus:(TASK_STATUS)status {
+    
+    self.m_taskStatus = status;
+    
+    if (TASK_STATUS_FINISHED == self.m_taskStatus ||
+        TASK_STATUS_ERROR == self.m_taskStatus ||
+        TASK_STATUS_PAUSING == self.m_taskStatus) {
+        
+        if ([self.delegate respondsToSelector:@selector(taskStatus:taskId:)]) {
+            
+            [self.delegate taskStatus:status taskId:[self objectID].description];
+        }
+    }
+}
 
 @end
