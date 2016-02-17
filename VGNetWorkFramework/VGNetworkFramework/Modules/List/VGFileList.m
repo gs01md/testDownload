@@ -70,7 +70,9 @@
  *
  *  @return :如果有，则返回文件路径
  */
-- (void) insertFilePathWithUrl:(NSString *)url name:(NSString *)name {
+- (NSString *) insertFilePathWithUrl:(NSString *)url name:(NSString *)name {
+    
+    NSString *filePath = nil;
     
     VGCGCoreDataHelper *coredata = [VGCGCoreDataHelper sharedManagerCenter];
     
@@ -82,9 +84,13 @@
         path.name = name;
         path.path = [self makeFilePathWithUrl:url name:name];
         
+        filePath = path.path;
+        
         //从内存保存到数据库
         [[VGCGCoreDataHelper sharedManagerCenter] saveContext];
     }
+    
+    return filePath;
     
 }
 

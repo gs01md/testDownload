@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
-    <entity name="Task" representedClassName="Task" syncable="YES">
-        <attribute name="downSize" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="fileTotalSize" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="resumeData" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="taskQueueId" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="taskStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="url" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="TaskQueue" representedClassName="TaskQueue" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
     </entity>
@@ -16,9 +8,17 @@
         <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="VGTaskNetwork" representedClassName="VGTaskNetwork" syncable="YES">
+        <attribute name="downSize" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="fileTotalSize" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="resumeData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="taskQueueId" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="taskStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="url" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="VGDownloadFilePath" positionX="-36" positionY="9" width="128" height="90"/>
-        <element name="Task" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="VGTaskNetwork" positionX="-54" positionY="-9" width="128" height="135"/>
         <element name="TaskQueue" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="VGDownloadFilePath" positionX="-36" positionY="9" width="128" height="90"/>
     </elements>
 </model>

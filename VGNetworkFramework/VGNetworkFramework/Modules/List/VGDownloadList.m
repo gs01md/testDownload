@@ -35,9 +35,9 @@
  *  @param strQueue   队列名称
  *  @param strUrl     任务url
  */
-- (Task *) addTaskWithQueue:(NSString *)strQueue url:(NSString *)strUrl {
+- (VGTaskNetwork *) addTaskWithQueue:(NSString *)strQueue url:(NSString *)strUrl {
     
-    Task *task = nil;
+    VGTaskNetwork *task = nil;
     
     //如果数据库不存在 Task Queue，则保存到 数据库
     [self saveQueueToCoreDataWithName:strQueue];
@@ -48,6 +48,7 @@
     if (nil != queue) {
         
         task = [queue saveTaskAndGetTaskWithUrl:strUrl resume:nil];
+        
     }
     
     return task;
@@ -131,7 +132,7 @@
     TaskQueue *queue = [self getTaskQueue:strQueue];
     
     //获取 下载任务
-    Task *task = [queue saveTaskAndGetTaskWithUrl:strQueue resume:nil];
+    VGTaskNetwork *task = [queue saveTaskAndGetTaskWithUrl:strQueue resume:nil];
     
     return task.m_taskDownload;
 }

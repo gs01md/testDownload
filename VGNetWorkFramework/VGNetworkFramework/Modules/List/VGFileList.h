@@ -30,6 +30,6 @@
  *
  *  @return :如果有，则返回文件路径
  */
-- (void) insertFilePathWithUrl:(NSString *)url name:(NSString *)name;
+- (NSString *) insertFilePathWithUrl:(NSString *)url name:(NSString *)name;
 
 @end

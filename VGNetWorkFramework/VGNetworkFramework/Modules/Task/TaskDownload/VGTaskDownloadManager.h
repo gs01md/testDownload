@@ -25,8 +25,6 @@
 #import "VGFileOverduleCheck.h"
 #import <Foundation/Foundation.h>
 #import "VGListManager.h"
-#import "VGTaskDownload.h"
-#import "VGTaskResponse.h"
 
 @interface VGTaskDownloadManager : NSObject<protocol_downloadTask>
 
@@ -51,7 +49,7 @@
  *
  *  @return 下载任务对象
  */
-- (VGTaskResponse *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
+- (VGTaskNetworkOpt *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue;
 
 /**
  *  根据“队列名”和“url” 重启一个下载任务

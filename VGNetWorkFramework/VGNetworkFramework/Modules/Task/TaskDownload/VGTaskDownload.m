@@ -232,13 +232,13 @@
     /**
      *  处理文件列表
      */
-    [[VGListManager sharedManagerCenter].m_fileList insertFilePathWithUrl:self.m_strSourceUrl name:name];
+    NSString *path = [[VGListManager sharedManagerCenter].m_fileList insertFilePathWithUrl:self.m_strSourceUrl name:name];
     
     
     if([self.delegate respondsToSelector:@selector(taskDidFinishedSuccessed:url:filePath:)]){
         
         //如果有，则调用它的实现
-        [self.delegate taskDidFinishedSuccessed:self.m_queueName url:self.m_strSourceUrl filePath:nil];
+        [self.delegate taskDidFinishedSuccessed:self.m_queueName url:self.m_strSourceUrl filePath:path];
     }
 }
 
@@ -261,7 +261,7 @@
     
 }
 
-#pragma mark - 设置任务状态
+#pragma mark - 抛出任务状态
 /**
  *  改变任务的状态
  *
@@ -274,6 +274,7 @@
         [self.delegate taskStatus:status];
     }
 }
+
 
 #pragma mark - test
 @end

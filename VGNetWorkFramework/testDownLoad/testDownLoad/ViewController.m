@@ -8,10 +8,12 @@
 #import "ViewController.h"
 
 #import <VGNetworkFramework/VGTaskDownloadManager.h>
+#import <VGNetworkFramework/VGTaskNetworkOpt.h>
 
-@interface ViewController ()
+@interface ViewController ()<protocol_VGTaskNetworkOpt>
 
-@property (nonatomic, strong) VGTaskResponse * m_down;
+@property (nonatomic, strong) VGTaskNetworkOpt * m_down;
+
 @end
 
 @implementation ViewController
@@ -34,11 +36,11 @@
 
 
 - (void) taskPause {
-    [self.m_down.m_task pauseTaskDownload];
+    [self.m_down.m_taskNetwork pauseTaskDownload];
 }
 
 - (void) taskRestart {
-    [self.m_down.m_task restartTaskDownload];
+    [self.m_down.m_taskNetwork restartTaskDownload];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +50,21 @@
 
 #pragma mark - fundation
 - (void) taskManager {
+    
     self.m_down = [[VGTaskDownloadManager sharedManagerCenter] createDownloadTaskWithUrl:@"https://qd.myapp.com/myapp/qqteam/AndroidQQ/mobileqq_android.apk" queue:@"default"];
+    
+    self.m_down.delegate = self;
+    
+}
+
+/**
+ *  获取下载文件地址
+ *
+ *  @param filePath 地址
+ */
+-(void)successWithFilePath:(NSString *)path {
+    
+    NSLog(@"获取保存文件的地址：%@",path);
 }
 
 - (IBAction)startEvent:(id)sender {

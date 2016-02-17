@@ -11,16 +11,16 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Task.h"
+#import "VGTaskNetworkOpt.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TaskQueue : NSManagedObject<protocol_task>
+@interface TaskQueue : NSManagedObject
 
 /**
  *  该队列中的任务
  */
-@property (nonatomic,strong)NSMutableArray<Task*> *m_arrayTask;
+@property (nonatomic,strong)NSMutableArray<VGTaskNetwork*> *m_arrayTask;
 
 /**
  *  同步任务
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  从数据库获取 队列名称列表
  */
-- (NSArray<Task *> *) getTaskArrayFromCoreData;
+- (NSArray<VGTaskNetwork *> *) getTaskArrayFromCoreData;
 
 /**
  *  从数据库删除任务，并重新加载到队列里
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param strUrl     任务url
  *  @param resumeData     任务状态数据
  */
-- (Task *) saveTaskAndGetTaskWithUrl:(NSString *)strUrl resume:(NSData  * _Nullable)resumeData;
+- (VGTaskNetwork *) saveTaskAndGetTaskWithUrl:(NSString *)strUrl resume:(NSData  * _Nullable)resumeData;
 
 /**
  *  获取某个任务的下载状态，如果有则返回，没有，则返回nil
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param task ：任务信息
  */
-- (void) startOneTask:(Task *)task;
+- (void) startOneTask:(VGTaskNetwork *)task;
 
 
 @end

@@ -23,7 +23,7 @@
  *  @param strQueue   队列名称
  *  @param strUrl     任务url
  */
-- (Task *) addTaskWithQueue:(NSString *)strQueue url:(NSString *)strUrl;
+- (VGTaskNetwork *) addTaskWithQueue:(NSString *)strQueue url:(NSString *)strUrl;
 
 /**
  *  根据“队列名”和“url” 重启一个下载任务

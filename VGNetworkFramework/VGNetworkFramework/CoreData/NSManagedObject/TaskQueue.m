@@ -8,6 +8,7 @@
 
 #import "TaskQueue.h"
 #import "VGCGCoreDataHelper.h"
+#import "VGListManager.h"
 
 @implementation TaskQueue
 
@@ -22,25 +23,27 @@
  *  @param strUrl         任务url
  *  @param resumeData     任务状态数据
  */
-- (Task *) saveTaskAndGetTaskWithUrl:(NSString *)strUrl resume:(NSData *)resumeData {
+- (VGTaskNetwork *) saveTaskAndGetTaskWithUrl:(NSString *)strUrl resume:(NSData *)resumeData {
     
-    Task * task = [self getTaskWithUrl:strUrl];
+
+    VGTaskNetwork *task = [self getTaskWithUrl:strUrl];
     
     if ( nil != task ) {
         
-        task.delegate = self;
         task.m_queueName = self.name;
         
         if (nil != resumeData) {
             
             [task saveDataWithResume: resumeData];
-        }        
+        }
     }
     
     [self startTaskManager];
     
+    
     return task;
 }
+
 
 /**
  *  从数据库删除任务，并重新加载到队列里
@@ -49,7 +52,7 @@
  */
 - (void) removeTaskWithUrl:(NSString *)strUrl {
     
-    Task * task = [self getTaskWithUrl:strUrl];
+    VGTaskNetwork * task = [self getTaskWithUrl:strUrl];
     
     if (nil != task) {
         
@@ -74,7 +77,7 @@
     
     NSData * data = nil;
     
-    Task * task = [self getTaskWithUrl:strUrl];
+    VGTaskNetwork * task = [self getTaskWithUrl:strUrl];
     
     if (nil != task) {
         
@@ -95,7 +98,7 @@
     
     if (false == [self hasDownloadingTask]) {
         
-        for (Task *temp in self.m_arrayTask) {
+        for (VGTaskNetwork *temp in self.m_arrayTask) {
             
             if (TASK_STATUS_QUEUE == temp.m_taskStatus) {
                 
@@ -111,7 +114,7 @@
     
     Boolean hasDownloading = false;
     
-    for (Task *temp in self.m_arrayTask) {
+    for (VGTaskNetwork *temp in self.m_arrayTask) {
         
         if (TASK_STATUS_DOWNLOADING == temp.m_taskStatus) {
             hasDownloading = true;
@@ -146,7 +149,7 @@
  */
 - (void) deleteTaskFromArray:(NSString *)taskId {
     
-    Task *task = [self taskFindWithId:taskId];
+    VGTaskNetwork *task = [self taskFindWithId:taskId];
     
     if (nil != task &&
         nil != self.m_arrayTask) {
@@ -162,7 +165,7 @@
  */
 - (void) deleteTaskFromCoreData:(NSString *)taskId {
     
-    Task *task = [self taskFindWithId:taskId];
+    VGTaskNetwork *task = [self taskFindWithId:taskId];
     
     if (nil != task ) {
         
@@ -178,9 +181,9 @@
 /**
  *  从数据库获取 队列名称列表
  */
-- (NSArray<Task *> *) getTaskArrayFromCoreData {
+- (NSArray<VGTaskNetwork *> *) getTaskArrayFromCoreData {
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Task"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"VGTaskNetwork"];
     
     /**
      *  谓词过滤，task 的 字段 taskQueueId
@@ -204,9 +207,9 @@
  *
  *  @return 任务
  */
-- (Task *) getTaskWithUrl:(NSString *)url {
+- (VGTaskNetwork *) getTaskWithUrl:(NSString *)url {
     
-    Task * task = nil;
+    VGTaskNetwork * task = nil;
     
     /**
      *  如果不存在，则创建
@@ -228,13 +231,13 @@
  *
  *  @return ：YES 存在；NO 不存在
  */
-- (Task *) taskWithUrl:(NSString *) url {
+- (VGTaskNetwork *) taskWithUrl:(NSString *) url {
     
     [self getTaskArrayFromCoreData];
     
-    Task * task = nil;
+    VGTaskNetwork * task = nil;
     
-    for (Task *temp in self.m_arrayTask) {
+    for (VGTaskNetwork *temp in self.m_arrayTask) {
         
         if ([[temp.url stringByTrimmingCharactersInSet:
               [NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[url stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]) {
@@ -259,7 +262,7 @@
     
     Boolean isExist = false;
     
-    for (Task *temp in self.m_arrayTask) {
+    for (VGTaskNetwork *temp in self.m_arrayTask) {
         
         if ([[temp.url stringByTrimmingCharactersInSet:
               [NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[url stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]) {
@@ -279,11 +282,11 @@
  *
  *  @return ：
  */
-- (Task *) taskFindWithId:(NSString *) taskId {
+- (VGTaskNetwork *) taskFindWithId:(NSString *) taskId {
     
-    Task * task = nil;
+    VGTaskNetwork * task = nil;
     
-    for (Task *temp in self.m_arrayTask) {
+    for (VGTaskNetwork *temp in self.m_arrayTask) {
         
         if ([[temp objectID].description isEqualToString:taskId]) {
             
@@ -309,7 +312,7 @@
      */
     if (![self isExistTask:url]) {
         
-        Task *task = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:[VGCGCoreDataHelper sharedManagerCenter].context];
+        VGTaskNetwork *task = [NSEntityDescription insertNewObjectForEntityForName:@"VGTaskNetwork" inManagedObjectContext:[VGCGCoreDataHelper sharedManagerCenter].context];
         task.url         = url;
         task.taskQueueId = [self objectID].description;
         
@@ -329,7 +332,7 @@
  *
  *  @param task ：任务信息
  */
-- (void) startOneTask:(Task *)task {
+- (void) startOneTask:(VGTaskNetwork *)task {
     
     if (nil != task) {
         [task start];
@@ -351,9 +354,9 @@
         self.m_arrayTask = [NSMutableArray new];
     }
     
-    for (Task *temp in array) {
+    for (VGTaskNetwork *temp in array) {
         
-        Task * task = [self findTaskInArray:temp];
+        VGTaskNetwork * task = [self findTaskInArray:temp];
         
         if (nil == task) {
             task.m_taskStatus = TASK_STATUS_QUEUE;
@@ -370,11 +373,11 @@
  *
  *  @param task ：刚从CoreData里获取的任务
  */
-- (Task *) findTaskInArray:(Task *)task {
+- (VGTaskNetwork *) findTaskInArray:(VGTaskNetwork *)task {
     
-    Task * taskFind = nil;
+    VGTaskNetwork * taskFind = nil;
     
-    for (Task *temp in self.m_arrayTask) {
+    for (VGTaskNetwork *temp in self.m_arrayTask) {
         
         if ([task.url isEqualToString:temp.url]) {
             

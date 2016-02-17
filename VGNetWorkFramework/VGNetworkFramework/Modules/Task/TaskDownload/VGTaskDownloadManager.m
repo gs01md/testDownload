@@ -8,6 +8,7 @@
 
 #import "VGTaskDownloadManager.h"
 #import "VGCGCoreDataHelper.h"
+#import "VGTaskNetworkOpt.h"
 
 @interface VGTaskDownloadManager()
 
@@ -97,23 +98,21 @@ static NSString *strClass = @"VGTaskDownloadManager";
  *
  *  @return 下载任务对象
  */
-- (VGTaskResponse *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
+- (VGTaskNetworkOpt *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
-    VGTaskResponse * taskResponse = [VGTaskResponse new];
     
-    NSString *filePath = [self.m_listManager.m_fileList getFilePathWithUrl:strUrl];
+    VGTaskNetworkOpt *taskOpt = [[VGTaskNetworkOpt alloc] initWithStrUrl:strUrl queue:strQueue];
     
-    //是否已经下载过
-    if (nil != filePath) {//已经下载过
+    //路径为空，则需要下载
+    //否则，说明已经下载过了
+    if (nil == [taskOpt checkPathExist:strUrl]) {
         
-        taskResponse.m_filePath = filePath;
+        taskOpt.m_taskNetwork = [self.m_listManager.m_downloadList addTaskWithQueue:strQueue url:strUrl];
         
-    } else {
-        
-        taskResponse.m_task = [self.m_listManager.m_downloadList addTaskWithQueue:strQueue url:strUrl];
     }
     
-    return taskResponse;
+    
+    return taskOpt;
 
 }
 

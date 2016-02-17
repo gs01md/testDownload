@@ -11,7 +11,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Task.h"
+#import "VGTaskNetwork.h"
 
 
 @interface VGTaskResponse : NSObject
@@ -25,6 +25,6 @@
 /**
  *  下载任务对象
  */
-@property (nonatomic, strong) Task *m_task;
+@property (nonatomic, strong) VGTaskNetwork *m_task;
 
 @end
