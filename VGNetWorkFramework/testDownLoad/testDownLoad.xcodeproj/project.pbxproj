@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F448DF761C704AB2000616B5 /* VGNetworkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F448DF751C704AB2000616B5 /* VGNetworkFramework.framework */; };
-		F448DF771C704ABC000616B5 /* VGNetworkFramework.framework in Resources */ = {isa = PBXBuildFile; fileRef = F448DF751C704AB2000616B5 /* VGNetworkFramework.framework */; };
-		F448DF781C704AC1000616B5 /* VGNetworkFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F448DF751C704AB2000616B5 /* VGNetworkFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E28DA2B1C74944200355796 /* VGNetworkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E28DA2A1C74944200355796 /* VGNetworkFramework.framework */; };
+		6E28DA2C1C74944B00355796 /* VGNetworkFramework.framework in Resources */ = {isa = PBXBuildFile; fileRef = 6E28DA2A1C74944200355796 /* VGNetworkFramework.framework */; };
 		F48C44C11C48EA2100EBD2A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F48C44C01C48EA2100EBD2A1 /* main.m */; };
 		F48C44C41C48EA2100EBD2A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F48C44C31C48EA2100EBD2A1 /* AppDelegate.m */; };
 		F48C44C71C48EA2100EBD2A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48C44C61C48EA2100EBD2A1 /* ViewController.m */; };
@@ -37,22 +36,8 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		6ED4BC091C6B183E00E2F259 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F448DF781C704AC1000616B5 /* VGNetworkFramework.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		F448DF751C704AB2000616B5 /* VGNetworkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VGNetworkFramework.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/VGNetWorkFramework-dngysbboipwbhvfckdzllyxntisa/Build/Products/Debug-iphoneos/VGNetworkFramework.framework"; sourceTree = "<group>"; };
+		6E28DA2A1C74944200355796 /* VGNetworkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VGNetworkFramework.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/VGNetWorkFramework-bvyaefnosfnabzdteqovedkpkyrc/Build/Products/Debug-iphoneos/VGNetworkFramework.framework"; sourceTree = "<group>"; };
 		F48C44BC1C48EA2000EBD2A1 /* testDownLoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testDownLoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48C44C01C48EA2100EBD2A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F48C44C21C48EA2100EBD2A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F448DF761C704AB2000616B5 /* VGNetworkFramework.framework in Frameworks */,
+				6E28DA2B1C74944200355796 /* VGNetworkFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +85,7 @@
 		F48C44B31C48EA2000EBD2A1 = {
 			isa = PBXGroup;
 			children = (
-				F448DF751C704AB2000616B5 /* VGNetworkFramework.framework */,
+				6E28DA2A1C74944200355796 /* VGNetworkFramework.framework */,
 				F48C44BE1C48EA2100EBD2A1 /* testDownLoad */,
 				F48C44D81C48EA2100EBD2A1 /* testDownLoadTests */,
 				F48C44E31C48EA2100EBD2A1 /* testDownLoadUITests */,
@@ -170,7 +155,6 @@
 				F48C44B81C48EA2000EBD2A1 /* Sources */,
 				F48C44B91C48EA2000EBD2A1 /* Frameworks */,
 				F48C44BA1C48EA2000EBD2A1 /* Resources */,
-				6ED4BC091C6B183E00E2F259 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,7 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F448DF771C704ABC000616B5 /* VGNetworkFramework.framework in Resources */,
+				6E28DA2C1C74944B00355796 /* VGNetworkFramework.framework in Resources */,
 				F48C44CF1C48EA2100EBD2A1 /* LaunchScreen.storyboard in Resources */,
 				F48C44CC1C48EA2100EBD2A1 /* Assets.xcassets in Resources */,
 				F48C44CA1C48EA2100EBD2A1 /* Main.storyboard in Resources */,

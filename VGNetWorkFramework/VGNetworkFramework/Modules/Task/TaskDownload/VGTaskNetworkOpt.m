@@ -44,7 +44,7 @@
         _m_url = strUrl;
         _m_queue = queue;
         
-        [self checkPathExist:strUrl];
+        [self initTimer];
     }
     
     return self;
@@ -62,11 +62,42 @@
     if (nil != path) {
         
         if ([self.delegate respondsToSelector:@selector(successWithFilePath:)]) {
+            
             [self.delegate successWithFilePath:path ];
         }
     }
     
     return path;
 }
+
+
+#pragma mark - 定时器
+/**
+ *  用于创建本实例后，如果对应的文件已经下载，则通过统一的代理方式返回文件路径
+ */
+-(void)initTimer{
+    
+    //执行时间
+    NSTimeInterval timeInterval = 0.5;
+    
+    //定时器
+    NSTimer   *showTimer = [NSTimer scheduledTimerWithTimeInterval:0.0
+                                                            target:self
+                                                          selector:@selector(handleTimer:)
+                                                          userInfo:nil
+                                                           repeats:NO];
+    
+    showTimer.fireDate = [NSDate dateWithTimeIntervalSinceNow:timeInterval];
+    
+    
+}
+
+//触发事件
+-(void)handleTimer:(NSTimer *)theTimer{
+    
+    [self checkPathExist:self.m_url];
+    
+}
+
 
 @end

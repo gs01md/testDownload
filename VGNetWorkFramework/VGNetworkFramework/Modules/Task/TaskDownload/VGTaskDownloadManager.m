@@ -100,7 +100,6 @@ static NSString *strClass = @"VGTaskDownloadManager";
  */
 - (VGTaskNetworkOpt *) createDownloadTaskWithUrl:(NSString *)strUrl queue:(NSString *)strQueue {
     
-    
     VGTaskNetworkOpt *taskOpt = [[VGTaskNetworkOpt alloc] initWithStrUrl:strUrl queue:strQueue];
     
     //路径为空，则需要下载
@@ -110,7 +109,6 @@ static NSString *strClass = @"VGTaskDownloadManager";
         taskOpt.m_taskNetwork = [self.m_listManager.m_downloadList addTaskWithQueue:strQueue url:strUrl];
         
     }
-    
     
     return taskOpt;
 
